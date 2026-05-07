@@ -9,52 +9,50 @@
       "name": "name",
       "label": "Service Name",
       "type": "TEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "category",
       "label": "Category",
       "type": "SELECT",
-      "options": {
-        "options": [
-          { "id": 1, "name": "Wellness",   "type": "option", "label": "Wellness" },
-          { "id": 2, "name": "Dental",     "type": "option", "label": "Dental" },
-          { "id": 3, "name": "Emergency",  "type": "option", "label": "Emergency" },
-          { "id": 4, "name": "Surgery",    "type": "option", "label": "Surgery" },
-          { "id": 5, "name": "Specialty",  "type": "option", "label": "Specialty" },
-          { "id": 6, "name": "Diagnostic", "type": "option", "label": "Diagnostic" }
-        ]
-      }
+      "options": [
+        { "id": 1, "name": "Wellness",   "label": "Wellness",   "type": "option", "order": 0 },
+        { "id": 2, "name": "Dental",     "label": "Dental",     "type": "option", "order": 1 },
+        { "id": 3, "name": "Emergency",  "label": "Emergency",  "type": "option", "order": 2 },
+        { "id": 4, "name": "Surgery",    "label": "Surgery",    "type": "option", "order": 3 },
+        { "id": 5, "name": "Specialty",  "label": "Specialty",  "type": "option", "order": 4 },
+        { "id": 6, "name": "Diagnostic", "label": "Diagnostic", "type": "option", "order": 5 }
+      ]
     },
     {
       "name": "description",
       "label": "Description",
       "type": "RICHTEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "duration",
       "label": "Duration",
       "type": "TEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "image",
       "label": "Service Image",
       "type": "IMAGE",
-      "options": {}
+      "options": []
     },
     {
       "name": "is_popular",
       "label": "Featured on Homepage",
       "type": "BOOLEAN",
-      "options": {}
+      "options": []
     },
     {
       "name": "display_order",
       "label": "Display Order",
       "type": "NUMBER",
-      "options": {}
+      "options": []
     }
   ],
   "rows": [

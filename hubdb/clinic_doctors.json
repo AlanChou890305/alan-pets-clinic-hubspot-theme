@@ -9,43 +9,43 @@
       "name": "name",
       "label": "Full Name",
       "type": "TEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "title",
       "label": "Title / Credentials",
       "type": "TEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "specialty",
       "label": "Specialty",
       "type": "TEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "bio",
       "label": "Biography",
       "type": "RICHTEXT",
-      "options": {}
+      "options": []
     },
     {
       "name": "photo",
       "label": "Photo",
       "type": "IMAGE",
-      "options": {}
+      "options": []
     },
     {
       "name": "is_featured",
       "label": "Featured on Homepage",
       "type": "BOOLEAN",
-      "options": {}
+      "options": []
     },
     {
       "name": "display_order",
       "label": "Display Order",
       "type": "NUMBER",
-      "options": {}
+      "options": []
     }
   ],
   "rows": [
