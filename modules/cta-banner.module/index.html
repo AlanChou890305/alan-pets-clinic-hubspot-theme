@@ -1,0 +1,33 @@
+{% set bg_styles = {
+  "primary": "background-color: var(--color-primary);",
+  "dark":    "background-color: var(--color-text);",
+  "light":   "background-color: var(--color-bg-teal); border-top: 1px solid var(--color-border-light); border-bottom: 1px solid var(--color-border-light);"
+} %}
+
+{% set btn_styles = {
+  "primary": "btn--white",
+  "dark":    "btn--white",
+  "light":   "btn--primary"
+} %}
+
+{% set text_style = module.style == 'light' and 'color: var(--color-text);' or 'color: #fff;' %}
+
+<section class="cta-banner{% if module.style == 'dark' %} cta-banner--dark{% endif %}"
+         style="{{ bg_styles[module.style] | default(bg_styles['primary']) }}"
+         aria-label="Call to action">
+  <div class="container">
+    <h2 class="cta-banner__title" style="{{ text_style }}">{{ module.heading }}</h2>
+    {% if module.subtext %}
+      <p class="cta-banner__subtitle" style="{% if module.style == 'light' %}color: var(--color-text-muted);{% endif %}">
+        {{ module.subtext }}
+      </p>
+    {% endif %}
+    {% if module.cta_label %}
+      <a href="{{ module.cta_url.href }}"
+         class="btn {{ btn_styles[module.style] | default('btn--white') }} btn--lg"
+         {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {{ module.cta_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>

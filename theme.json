@@ -1,0 +1,118 @@
+{
+  "label": "PawClinic Veterinary Theme",
+  "preview_path": "/",
+  "screenshot_path": "",
+  "enable_domain_stylesheets": false,
+  "version": "1.0.0",
+  "author": {
+    "name": "Alan Demo",
+    "url": ""
+  },
+  "documentation_url": "",
+  "description": "HubSpot CMS theme for PawClinic veterinary clinic. Includes home, services, doctors, and booking pages with HubDB-powered dynamic content.",
+  "license": "PROPRIETARY",
+  "tags": ["veterinary", "clinic", "services", "booking"],
+  "settings": {
+    "content": {
+      "children": [
+        {
+          "name": "colors",
+          "label": "Colors",
+          "children": [
+            {
+              "name": "primary_color",
+              "label": "Primary Color",
+              "type": "color",
+              "default": {
+                "color": "#14B8A6",
+                "opacity": 100
+              }
+            },
+            {
+              "name": "primary_dark",
+              "label": "Primary Dark",
+              "type": "color",
+              "default": {
+                "color": "#0D9488",
+                "opacity": 100
+              }
+            },
+            {
+              "name": "accent_color",
+              "label": "Accent Color",
+              "type": "color",
+              "default": {
+                "color": "#F97316",
+                "opacity": 100
+              }
+            },
+            {
+              "name": "text_color",
+              "label": "Body Text Color",
+              "type": "color",
+              "default": {
+                "color": "#111827",
+                "opacity": 100
+              }
+            },
+            {
+              "name": "heading_color",
+              "label": "Heading Color",
+              "type": "color",
+              "default": {
+                "color": "#111827",
+                "opacity": 100
+              }
+            }
+          ]
+        },
+        {
+          "name": "typography",
+          "label": "Typography",
+          "children": [
+            {
+              "name": "base_font",
+              "label": "Base Font",
+              "type": "font",
+              "default": {
+                "font": "Inter",
+                "font_set": "GOOGLE",
+                "size": 16,
+                "size_unit": "px",
+                "color": "#374151",
+                "styles": {}
+              }
+            },
+            {
+              "name": "heading_font",
+              "label": "Heading Font",
+              "type": "font",
+              "default": {
+                "font": "Inter",
+                "font_set": "GOOGLE",
+                "size": 36,
+                "size_unit": "px",
+                "color": "#111827",
+                "styles": {
+                  "bold": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "spacing",
+          "label": "Spacing",
+          "children": [
+            {
+              "name": "max_page_width",
+              "label": "Max Page Width (px)",
+              "type": "number",
+              "default": 1280
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

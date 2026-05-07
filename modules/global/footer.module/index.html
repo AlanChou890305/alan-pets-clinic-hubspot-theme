@@ -1,0 +1,94 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+
+    <div class="site-footer__grid">
+
+      {# Brand column #}
+      <div>
+        <div class="site-footer__brand-name">{{ module.site_name }}</div>
+        <p class="site-footer__tagline">{{ module.tagline }}</p>
+
+        {% if module.social_links %}
+          <div class="site-footer__social">
+            {% for social in module.social_links %}
+              <a href="{{ social.url.href }}"
+                 class="site-footer__social-link"
+                 aria-label="{{ social.platform }}"
+                 {% if social.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                {{ social.icon }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {# Navigation column #}
+      <div>
+        <h4 class="site-footer__col-title">Navigation</h4>
+        <ul class="site-footer__nav-list">
+          {% for item in module.nav_links %}
+            <li>
+              <a href="{{ item.url.href }}"
+                 {% if item.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                {{ item.label }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {# Contact column #}
+      <div>
+        <h4 class="site-footer__col-title">Contact</h4>
+        {% if module.address %}
+          <div class="site-footer__contact-item">
+            <span>📍</span>
+            <span>{{ module.address }}</span>
+          </div>
+        {% endif %}
+        {% if module.phone %}
+          <div class="site-footer__contact-item">
+            <span>📞</span>
+            <a href="tel:{{ module.phone | replace('(','') | replace(')','') | replace(' ','-') }}"
+               style="color: #9CA3AF;">
+              {{ module.phone }}
+            </a>
+          </div>
+        {% endif %}
+        {% if module.email %}
+          <div class="site-footer__contact-item">
+            <span>✉️</span>
+            <a href="mailto:{{ module.email }}" style="color: #9CA3AF;">
+              {{ module.email }}
+            </a>
+          </div>
+        {% endif %}
+        {% if module.emergency_line %}
+          <div class="site-footer__contact-item" style="margin-top: .5rem;">
+            <span>🚨</span>
+            <span>Emergency: <strong style="color: #F87171;">{{ module.emergency_line }}</strong> (24/7)</span>
+          </div>
+        {% endif %}
+      </div>
+
+      {# Hours column #}
+      <div>
+        <h4 class="site-footer__col-title">Clinic Hours</h4>
+        {% for row in module.hours %}
+          <div class="site-footer__hours-item">
+            <span class="site-footer__hours-day">{{ row.days }}:</span><br>
+            {{ row.time }}
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>{# /.site-footer__grid #}
+
+    {# Bottom bar #}
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">{{ module.copyright_text }}</p>
+      <p class="site-footer__copyright">Built with HubSpot CMS</p>
+    </div>
+
+  </div>{# /.container #}
+</footer>

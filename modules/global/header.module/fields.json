@@ -1,0 +1,86 @@
+[
+  {
+    "id": "logo",
+    "name": "logo",
+    "label": "Logo Image",
+    "required": false,
+    "locked": false,
+    "type": "image",
+    "default": {
+      "src": "",
+      "alt": "PawClinic Logo",
+      "width": 120,
+      "height": 40
+    }
+  },
+  {
+    "id": "site_name",
+    "name": "site_name",
+    "label": "Site Name",
+    "required": true,
+    "locked": false,
+    "type": "text",
+    "default": "PawClinic"
+  },
+  {
+    "id": "site_tagline",
+    "name": "site_tagline",
+    "label": "Site Tagline (below name)",
+    "required": false,
+    "locked": false,
+    "type": "text",
+    "default": "PET VETERINARY CLINIC"
+  },
+  {
+    "id": "nav_links",
+    "name": "nav_links",
+    "label": "Navigation Links",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 3
+    },
+    "default": [
+      { "label": "Home", "url": { "href": "/" } },
+      { "label": "Services", "url": { "href": "/services" } },
+      { "label": "Our Doctors", "url": { "href": "/doctors" } }
+    ],
+    "children": [
+      {
+        "id": "nav_links_label",
+        "name": "label",
+        "label": "Link Label",
+        "type": "text",
+        "default": "Page"
+      },
+      {
+        "id": "nav_links_url",
+        "name": "url",
+        "label": "Link URL",
+        "type": "link",
+        "default": { "href": "/" }
+      }
+    ]
+  },
+  {
+    "id": "cta_label",
+    "name": "cta_label",
+    "label": "CTA Button Label",
+    "required": false,
+    "locked": false,
+    "type": "text",
+    "default": "Book Appointment"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "CTA Button URL",
+    "required": false,
+    "locked": false,
+    "type": "link",
+    "default": { "href": "/book" }
+  }
+]

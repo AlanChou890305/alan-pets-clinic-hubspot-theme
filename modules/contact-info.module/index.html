@@ -1,0 +1,106 @@
+<section class="section" aria-label="{{ module.section_heading }}">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-header__title">{{ module.section_heading }}</h2>
+    </div>
+
+    <div class="contact-info__grid">
+
+      {# Contact details #}
+      <div class="contact-info__details">
+
+        {% if module.address %}
+          <div class="contact-item">
+            <div class="contact-item__icon" aria-hidden="true">📍</div>
+            <div>
+              <div class="contact-item__label">Address</div>
+              <div class="contact-item__value">{{ module.address }}</div>
+              {% if module.directions_url.href %}
+                <a href="{{ module.directions_url.href }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="font-size:var(--font-size-sm); color:var(--color-primary); margin-top:4px; display:inline-block;">
+                  Get Directions →
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if module.phone %}
+          <div class="contact-item">
+            <div class="contact-item__icon" aria-hidden="true">📞</div>
+            <div>
+              <div class="contact-item__label">Phone</div>
+              <div class="contact-item__value">
+                <a href="tel:{{ module.phone | replace('(','') | replace(')','') | replace(' ','-') }}">
+                  {{ module.phone }}
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if module.email %}
+          <div class="contact-item">
+            <div class="contact-item__icon" aria-hidden="true">✉️</div>
+            <div>
+              <div class="contact-item__label">Email</div>
+              <div class="contact-item__value">
+                <a href="mailto:{{ module.email }}">{{ module.email }}</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if module.emergency_line %}
+          <div class="contact-item">
+            <div class="contact-item__icon" aria-hidden="true">🚨</div>
+            <div>
+              <div class="contact-item__label">24/7 Emergency</div>
+              <div class="contact-item__value" style="color: #EF4444;">
+                <a href="tel:{{ module.emergency_line | replace('(','') | replace(')','') | replace(' ','-') }}"
+                   style="color: #EF4444;">
+                  {{ module.emergency_line }}
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if module.hours %}
+          <div class="contact-item" style="align-items: flex-start;">
+            <div class="contact-item__icon" aria-hidden="true">🕐</div>
+            <div>
+              <div class="contact-item__label">Clinic Hours</div>
+              {% for row in module.hours %}
+                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: 4px;">
+                  <strong style="color: var(--color-text);">{{ row.label }}:</strong> {{ row.time }}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>{# /.contact-info__details #}
+
+      {# Map #}
+      <div class="contact-info__map">
+        {% if module.map_embed_code %}
+          {{ module.map_embed_code }}
+        {% else %}
+          <div class="contact-info__map-placeholder">
+            <div style="text-align:center;">
+              <div style="font-size: 2rem; margin-bottom: .5rem;">🗺️</div>
+              <p>Paste your Google Maps embed code in the <strong>Map Embed Code</strong> field to display a map here.</p>
+              <p style="margin-top:.5rem; font-size:var(--font-size-xs);">Google Maps → Share → Embed a map → Copy HTML</p>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+    </div>{# /.contact-info__grid #}
+
+  </div>
+</section>

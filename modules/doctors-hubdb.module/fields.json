@@ -1,0 +1,67 @@
+[
+  {
+    "id": "section_heading",
+    "name": "section_heading",
+    "label": "Section Heading",
+    "type": "text",
+    "default": "Meet Our Expert Veterinarians"
+  },
+  {
+    "id": "section_subheading",
+    "name": "section_subheading",
+    "label": "Section Subheading",
+    "type": "text",
+    "default": "Our board-certified doctors bring deep specializations and genuine compassion to every visit."
+  },
+  {
+    "id": "hubdb_table_id",
+    "name": "hubdb_table_id",
+    "label": "HubDB Table Name (clinic_doctors)",
+    "type": "text",
+    "default": "clinic_doctors"
+  },
+  {
+    "id": "items_per_page",
+    "name": "items_per_page",
+    "label": "Items Per Page",
+    "type": "number",
+    "default": 4,
+    "min": 1,
+    "max": 12
+  },
+  {
+    "id": "featured_only",
+    "name": "featured_only",
+    "label": "Show Featured Only (for homepage use)",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "id": "show_bio",
+    "name": "show_bio",
+    "label": "Show Doctor Bio (for doctors page)",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "id": "show_pagination",
+    "name": "show_pagination",
+    "label": "Show Pagination",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "view_all_label",
+    "name": "view_all_label",
+    "label": "View All Button Label (homepage only)",
+    "type": "text",
+    "default": "Meet All Our Doctors"
+  },
+  {
+    "id": "view_all_url",
+    "name": "view_all_url",
+    "label": "View All Button URL",
+    "type": "link",
+    "default": { "href": "/doctors" }
+  }
+]

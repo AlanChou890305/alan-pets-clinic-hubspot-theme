@@ -1,0 +1,44 @@
+[
+  {
+    "id": "section_heading",
+    "name": "section_heading",
+    "label": "Section Heading",
+    "type": "text",
+    "default": "Why Choose PawClinic?"
+  },
+  {
+    "id": "section_subheading",
+    "name": "section_subheading",
+    "label": "Section Subheading",
+    "type": "text",
+    "default": "We go beyond standard care to make every visit exceptional."
+  },
+  {
+    "id": "items",
+    "name": "items",
+    "label": "Highlight Items",
+    "type": "group",
+    "occurrence": { "min": 2, "max": 8, "default": 4 },
+    "default": [
+      { "icon": "🏆", "text": "Board-certified specialists with deep expertise across all pet types" },
+      { "icon": "⚡", "text": "Same-day appointments available for urgent care needs" },
+      { "icon": "💊", "text": "On-site pharmacy for convenient prescription pickup" },
+      { "icon": "📱", "text": "Digital health records and easy online booking 24/7" }
+    ],
+    "children": [
+      { "id": "item_icon", "name": "icon", "label": "Icon (emoji)", "type": "text", "default": "✅" },
+      { "id": "item_text", "name": "text", "label": "Highlight Text", "type": "text", "default": "Highlight text here" }
+    ]
+  },
+  {
+    "id": "layout",
+    "name": "layout",
+    "label": "Layout",
+    "type": "choice",
+    "choices": [
+      ["grid", "2-Column Grid"],
+      ["list", "Single Column List"]
+    ],
+    "default": "grid"
+  }
+]

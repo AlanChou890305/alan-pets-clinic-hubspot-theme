@@ -1,0 +1,78 @@
+{% set slide_count = module.slides | length %}
+
+<section class="hero-carousel"
+         aria-label="Hero banner"
+         data-auto-rotate="{{ module.auto_rotate | lower }}"
+         data-interval="{{ module.interval_ms }}">
+
+  <div class="hero-carousel__track">
+    {% for slide in module.slides %}
+      <div class="hero-carousel__slide" aria-hidden="{{ loop.index > 1 | lower }}">
+
+        {# Background image #}
+        {% if slide.image.src %}
+          <img src="{{ slide.image.src }}"
+               alt="{{ slide.image.alt }}"
+               class="hero-carousel__bg"
+               {% if loop.first %}loading="eager"{% else %}loading="lazy"{% endif %}>
+        {% else %}
+          <div class="hero-carousel__bg" style="background: linear-gradient(135deg, #0D9488 0%, #14B8A6 100%);"></div>
+        {% endif %}
+
+        {# Overlay #}
+        <div class="hero-carousel__overlay"
+             style="background: linear-gradient(to right, rgba(0,0,0,{{ slide.overlay_opacity / 100 }}) 0%, rgba(0,0,0,{{ [slide.overlay_opacity / 100 - 0.3, 0.1] | max }}) 100%);"></div>
+
+        {# Content #}
+        <div class="container">
+          <div class="hero-carousel__content">
+            {% if slide.eyebrow %}
+              <div class="hero-carousel__eyebrow">{{ slide.eyebrow }}</div>
+            {% endif %}
+
+            <h1 class="hero-carousel__title">{{ slide.heading }}</h1>
+
+            {% if slide.subheading %}
+              <p class="hero-carousel__subtitle">{{ slide.subheading }}</p>
+            {% endif %}
+
+            <div class="hero-carousel__actions">
+              {% if slide.cta_primary_label %}
+                <a href="{{ slide.cta_primary_url.href }}"
+                   class="btn btn--primary btn--lg"
+                   {% if slide.cta_primary_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                  {{ slide.cta_primary_label }}
+                </a>
+              {% endif %}
+              {% if slide.cta_secondary_label %}
+                <a href="{{ slide.cta_secondary_url.href }}"
+                   class="btn btn--white btn--lg"
+                   {% if slide.cta_secondary_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                  {{ slide.cta_secondary_label }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+  {# Navigation arrows #}
+  {% if slide_count > 1 %}
+    <button class="hero-carousel__prev" aria-label="Previous slide">&#8249;</button>
+    <button class="hero-carousel__next" aria-label="Next slide">&#8250;</button>
+
+    {# Dot indicators #}
+    <div class="hero-carousel__dots" role="tablist" aria-label="Slide navigation">
+      {% for slide in module.slides %}
+        <button class="hero-carousel__dot{% if loop.first %} hero-carousel__dot--active{% endif %}"
+                role="tab"
+                aria-label="Go to slide {{ loop.index }}"
+                aria-selected="{{ loop.first | lower }}"></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</section>

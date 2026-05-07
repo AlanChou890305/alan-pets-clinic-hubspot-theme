@@ -1,0 +1,217 @@
+{% set services = hubdb_table_rows(module.services_table_id | default('clinic_services'), 'orderBy=display_order') %}
+{% set doctors  = hubdb_table_rows(module.doctors_table_id | default('clinic_doctors'), 'orderBy=display_order') %}
+
+<section class="section{% if module.background_style == 'teal' %} section--teal{% endif %}"
+         style="{% if module.background_style == 'teal' %}background-color: var(--color-bg-teal);{% endif %}"
+         aria-label="{{ module.form_title }}">
+  <div class="container">
+
+    <div class="booking-form-wrap{% if module.background_style == 'teal' %} booking-form-wrap--teal{% endif %}">
+
+      <div class="booking-form__header">
+        <h2 class="booking-form__title">{{ module.form_title }}</h2>
+
+        {# Step indicator #}
+        <div class="booking-form__steps" aria-label="Form steps">
+
+          <div class="booking-form__step">
+            <div class="booking-form__step-num">1</div>
+            <span class="booking-form__step-label">{{ module.step1_label }}</span>
+          </div>
+          <div class="booking-form__step-line"></div>
+
+          <div class="booking-form__step">
+            <div class="booking-form__step-num">2</div>
+            <span class="booking-form__step-label">{{ module.step2_label }}</span>
+          </div>
+          <div class="booking-form__step-line"></div>
+
+          <div class="booking-form__step">
+            <div class="booking-form__step-num">3</div>
+            <span class="booking-form__step-label">{{ module.step3_label }}</span>
+          </div>
+
+        </div>
+      </div>{# /.booking-form__header #}
+
+      <div class="booking-form__body">
+
+        {# ── Step 1: Your Information ── #}
+        <div class="booking-form__panel">
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_name">Full Name</label>
+            <input type="text" id="bf_name" name="bf_name"
+                   class="form-control"
+                   placeholder="e.g. Jane Smith"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_phone">Phone Number</label>
+            <input type="tel" id="bf_phone" name="bf_phone"
+                   class="form-control"
+                   placeholder="e.g. (555) 123-4567"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_email">Email Address</label>
+            <input type="email" id="bf_email" name="bf_email"
+                   class="form-control"
+                   placeholder="e.g. jane@example.com"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_pet_type">Pet Type</label>
+            <select id="bf_pet_type" name="bf_pet_type" class="form-control" required>
+              <option value="">— Select pet type —</option>
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Rabbit">Rabbit</option>
+              <option value="Guinea Pig">Guinea Pig</option>
+              <option value="Bird">Bird</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bf_pet_name">Pet's Name <span style="color:var(--color-text-muted);font-weight:400;">(optional)</span></label>
+            <input type="text" id="bf_pet_name" name="bf_pet_name"
+                   class="form-control"
+                   placeholder="e.g. Mochi">
+          </div>
+
+          <div class="booking-form__nav">
+            <span></span>
+            <button type="button" class="btn btn--primary btn--lg" data-form-next>
+              Next: {{ module.step2_label }} →
+            </button>
+          </div>
+        </div>
+
+        {# ── Step 2: Appointment Details ── #}
+        <div class="booking-form__panel">
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_service">Service</label>
+            <select id="bf_service" name="bf_service" class="form-control" required>
+              <option value="">— Select a service —</option>
+              {% for svc in services %}
+                <option value="{{ svc.name }}">{{ svc.name }}{% if svc.duration %} ({{ svc.duration }}){% endif %}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bf_doctor">Preferred Doctor <span style="color:var(--color-text-muted);font-weight:400;">(optional)</span></label>
+            <select id="bf_doctor" name="bf_doctor" class="form-control">
+              <option value="">— No preference —</option>
+              {% for doc in doctors %}
+                <option value="{{ doc.name }}">{{ doc.name }}{% if doc.specialty %} – {{ doc.specialty }}{% endif %}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_date">Preferred Date</label>
+            <input type="date" id="bf_date" name="bf_date"
+                   class="form-control"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="bf_time">Preferred Time</label>
+            <select id="bf_time" name="bf_time" class="form-control" required>
+              <option value="">— Select a time —</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="18:00">6:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bf_notes">Additional Notes <span style="color:var(--color-text-muted);font-weight:400;">(optional)</span></label>
+            <textarea id="bf_notes" name="bf_notes"
+                      class="form-control"
+                      rows="3"
+                      placeholder="Any symptoms or concerns we should know about..."></textarea>
+          </div>
+
+          <div class="booking-form__nav">
+            <button type="button" class="btn btn--outline" data-form-prev>
+              ← Back
+            </button>
+            <button type="button" class="btn btn--primary btn--lg" data-form-next>
+              Review Booking →
+            </button>
+          </div>
+        </div>
+
+        {# ── Step 3: Confirm & Submit ── #}
+        <div class="booking-form__panel">
+          <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-5);">
+            Please review your information before confirming.
+          </p>
+
+          {# Summary populated by form-steps.js #}
+          <div class="booking-confirm__summary"></div>
+
+          {# If HubSpot Form ID is configured, embed a hidden form for actual submission #}
+          {% if module.hubspot_form_id %}
+            <div id="hs-form-target" style="display:none;"></div>
+            <script>
+              window.addEventListener('load', function() {
+                if (window.hbspt) {
+                  hbspt.forms.create({
+                    region: "na1",
+                    portalId: "{{ module.hubspot_portal_id }}",
+                    formId: "{{ module.hubspot_form_id }}",
+                    target: "#hs-form-target",
+                    onFormSubmit: function() {
+                      document.getElementById('booking-success').style.display = 'block';
+                      document.querySelector('.booking-form-wrap').style.display = 'none';
+                    }
+                  });
+                }
+              });
+            </script>
+          {% endif %}
+
+          <div id="booking-success"
+               style="display:none; background:var(--color-primary-bg); border-radius:var(--radius-lg); padding:var(--space-6); text-align:center; border: 1px solid var(--color-primary-light);">
+            <div style="font-size:2.5rem; margin-bottom:var(--space-3);">✅</div>
+            <h3 style="color:var(--color-primary-dark); margin-bottom:var(--space-2);">Booking Received!</h3>
+            <p style="color:var(--color-text-secondary); font-size:var(--font-size-sm);">{{ module.success_message }}</p>
+          </div>
+
+          <div class="booking-form__nav">
+            <button type="button" class="btn btn--outline" data-form-prev>
+              ← Edit Details
+            </button>
+            <button type="button"
+                    class="btn btn--primary btn--lg"
+                    id="booking-submit-btn"
+                    onclick="
+                      {% if module.hubspot_form_id %}
+                        var hsForm = document.querySelector('#hs-form-target form');
+                        if (hsForm) { hsForm.submit(); }
+                        else {
+                          document.getElementById('booking-success').style.display = 'block';
+                          this.closest('.booking-form-wrap').style.display = 'none';
+                        }
+                      {% else %}
+                        document.getElementById('booking-success').style.display = 'block';
+                        this.closest('.booking-form__panel').style.display = 'none';
+                        this.closest('.booking-form-wrap').querySelector('.booking-form__nav').style.display = 'none';
+                      {% endif %}
+                    ">
+              {{ module.submit_label }}
+            </button>
+          </div>
+        </div>
+
+      </div>{# /.booking-form__body #}
+
+    </div>{# /.booking-form-wrap #}
+
+  </div>
+</section>

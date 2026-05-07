@@ -1,0 +1,37 @@
+[
+  {
+    "id": "page_title",
+    "name": "page_title",
+    "label": "Page Title",
+    "type": "text",
+    "default": "Page Title"
+  },
+  {
+    "id": "tagline",
+    "name": "tagline",
+    "label": "Tagline / Subtitle",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "id": "show_breadcrumb",
+    "name": "show_breadcrumb",
+    "label": "Show Breadcrumb",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "breadcrumb_parent_label",
+    "name": "breadcrumb_parent_label",
+    "label": "Parent Breadcrumb Label",
+    "type": "text",
+    "default": "Home"
+  },
+  {
+    "id": "breadcrumb_parent_url",
+    "name": "breadcrumb_parent_url",
+    "label": "Parent Breadcrumb URL",
+    "type": "link",
+    "default": { "href": "/" }
+  }
+]

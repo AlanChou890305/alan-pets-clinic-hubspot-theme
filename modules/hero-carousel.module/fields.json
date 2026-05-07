@@ -1,0 +1,125 @@
+[
+  {
+    "id": "slides",
+    "name": "slides",
+    "label": "Slides",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3 },
+    "default": [
+      {
+        "image": { "src": "", "alt": "Compassionate Care for Every Pet" },
+        "overlay_opacity": 55,
+        "eyebrow": "🏥 Open 7 Days a Week",
+        "heading": "Compassionate Care for Every Pet",
+        "subheading": "Our board-certified veterinarians provide expert care with a personal touch.",
+        "cta_primary_label": "Book Appointment",
+        "cta_primary_url": { "href": "/book" },
+        "cta_secondary_label": "Our Services",
+        "cta_secondary_url": { "href": "/services" }
+      },
+      {
+        "image": { "src": "", "alt": "Advanced Diagnostics" },
+        "overlay_opacity": 55,
+        "eyebrow": "🔬 State-of-the-Art Equipment",
+        "heading": "Advanced Diagnostics You Can Trust",
+        "subheading": "From routine checkups to complex diagnostics, we have the technology to care for your pet.",
+        "cta_primary_label": "View Services",
+        "cta_primary_url": { "href": "/services" },
+        "cta_secondary_label": "",
+        "cta_secondary_url": { "href": "" }
+      },
+      {
+        "image": { "src": "", "alt": "Meet Our Team" },
+        "overlay_opacity": 55,
+        "eyebrow": "👩‍⚕️ Expert Veterinarians",
+        "heading": "Your Pet Deserves the Best Care",
+        "subheading": "Meet our team of specialists dedicated to keeping your pet healthy and happy.",
+        "cta_primary_label": "Meet Our Doctors",
+        "cta_primary_url": { "href": "/doctors" },
+        "cta_secondary_label": "",
+        "cta_secondary_url": { "href": "" }
+      }
+    ],
+    "children": [
+      {
+        "id": "slides_image",
+        "name": "image",
+        "label": "Slide Background Image",
+        "type": "image",
+        "default": { "src": "", "alt": "" }
+      },
+      {
+        "id": "slides_overlay_opacity",
+        "name": "overlay_opacity",
+        "label": "Image Overlay Opacity (%)",
+        "type": "number",
+        "default": 55,
+        "min": 0,
+        "max": 90
+      },
+      {
+        "id": "slides_eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow Text (small text above heading)",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "id": "slides_heading",
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Slide Heading"
+      },
+      {
+        "id": "slides_subheading",
+        "name": "subheading",
+        "label": "Subheading",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "id": "slides_cta_primary_label",
+        "name": "cta_primary_label",
+        "label": "Primary CTA Label",
+        "type": "text",
+        "default": "Book Appointment"
+      },
+      {
+        "id": "slides_cta_primary_url",
+        "name": "cta_primary_url",
+        "label": "Primary CTA URL",
+        "type": "link",
+        "default": { "href": "/book" }
+      },
+      {
+        "id": "slides_cta_secondary_label",
+        "name": "cta_secondary_label",
+        "label": "Secondary CTA Label (optional)",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "id": "slides_cta_secondary_url",
+        "name": "cta_secondary_url",
+        "label": "Secondary CTA URL",
+        "type": "link",
+        "default": { "href": "" }
+      }
+    ]
+  },
+  {
+    "id": "auto_rotate",
+    "name": "auto_rotate",
+    "label": "Auto-rotate Slides",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "interval_ms",
+    "name": "interval_ms",
+    "label": "Auto-rotate Interval (milliseconds)",
+    "type": "number",
+    "default": 5000
+  }
+]

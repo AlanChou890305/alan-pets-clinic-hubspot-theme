@@ -1,0 +1,19 @@
+<section class="page-hero">
+  <div class="container">
+
+    {% if module.show_breadcrumb %}
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ module.breadcrumb_parent_url.href }}">{{ module.breadcrumb_parent_label }}</a>
+        <span class="breadcrumb__separator" aria-hidden="true">/</span>
+        <span aria-current="page">{{ module.page_title }}</span>
+      </nav>
+    {% endif %}
+
+    <h1 class="page-hero__title">{{ module.page_title }}</h1>
+
+    {% if module.tagline %}
+      <p class="page-hero__tagline">{{ module.tagline }}</p>
+    {% endif %}
+
+  </div>
+</section>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Ready to Book an Appointment?"
+  },
+  {
+    "id": "subtext",
+    "name": "subtext",
+    "label": "Subtext",
+    "type": "text",
+    "default": "Schedule online in just a few minutes. We'll take care of the rest."
+  },
+  {
+    "id": "cta_label",
+    "name": "cta_label",
+    "label": "CTA Button Label",
+    "type": "text",
+    "default": "Book Now"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "CTA Button URL",
+    "type": "link",
+    "default": { "href": "/book" }
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Banner Style",
+    "type": "choice",
+    "choices": [
+      ["primary", "Teal (Primary)"],
+      ["dark", "Dark"],
+      ["light", "Light Teal"]
+    ],
+    "default": "primary"
+  }
+]

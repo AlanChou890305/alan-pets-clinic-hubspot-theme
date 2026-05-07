@@ -1,0 +1,81 @@
+[
+  {
+    "id": "section_heading",
+    "name": "section_heading",
+    "label": "Section Heading",
+    "type": "text",
+    "default": "Comprehensive Veterinary Services"
+  },
+  {
+    "id": "section_subheading",
+    "name": "section_subheading",
+    "label": "Section Subheading",
+    "type": "text",
+    "default": "From routine wellness exams to complex surgeries, we provide complete care for your pet."
+  },
+  {
+    "id": "hubdb_table_id",
+    "name": "hubdb_table_id",
+    "label": "HubDB Table Name (clinic_services)",
+    "type": "text",
+    "default": "clinic_services"
+  },
+  {
+    "id": "items_per_page",
+    "name": "items_per_page",
+    "label": "Items Per Page",
+    "type": "number",
+    "default": 4,
+    "min": 1,
+    "max": 12
+  },
+  {
+    "id": "featured_only",
+    "name": "featured_only",
+    "label": "Show Featured/Popular Only (for homepage use)",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "id": "show_filter",
+    "name": "show_filter",
+    "label": "Show Category Filter Bar",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "show_pagination",
+    "name": "show_pagination",
+    "label": "Show Pagination",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "book_cta_label",
+    "name": "book_cta_label",
+    "label": "Book Button Label",
+    "type": "text",
+    "default": "Book This Service"
+  },
+  {
+    "id": "book_cta_url",
+    "name": "book_cta_url",
+    "label": "Book Button URL",
+    "type": "link",
+    "default": { "href": "/book" }
+  },
+  {
+    "id": "view_all_label",
+    "name": "view_all_label",
+    "label": "View All Button Label (homepage only)",
+    "type": "text",
+    "default": "View All Services"
+  },
+  {
+    "id": "view_all_url",
+    "name": "view_all_url",
+    "label": "View All Button URL",
+    "type": "link",
+    "default": { "href": "/services" }
+  }
+]

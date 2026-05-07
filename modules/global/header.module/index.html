@@ -1,0 +1,73 @@
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header__inner">
+
+      {# Logo / Brand #}
+      <a href="/" class="site-header__logo" aria-label="{{ module.site_name }} — Home">
+        {% if module.logo.src %}
+          <img src="{{ module.logo.src }}"
+               alt="{{ module.logo.alt }}"
+               class="site-header__logo-img"
+               width="{{ module.logo.width }}"
+               height="{{ module.logo.height }}"
+               loading="eager">
+        {% endif %}
+        <div class="site-header__brand">
+          <span class="site-header__brand-name">{{ module.site_name }}</span>
+          {% if module.site_tagline %}
+            <span class="site-header__brand-sub">{{ module.site_tagline }}</span>
+          {% endif %}
+        </div>
+      </a>
+
+      {# Desktop Navigation #}
+      <nav class="site-header__nav" aria-label="Main navigation">
+        {% for item in module.nav_links %}
+          <a href="{{ item.url.href }}"
+             {% if item.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            {{ item.label }}
+          </a>
+        {% endfor %}
+      </nav>
+
+      {# CTA + Mobile hamburger #}
+      <div class="site-header__actions">
+        {% if module.cta_label %}
+          <a href="{{ module.cta_url.href }}"
+             class="btn btn--primary"
+             {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            {{ module.cta_label }}
+          </a>
+        {% endif %}
+
+        <button class="site-header__hamburger"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>{# /.site-header__inner #}
+  </div>{# /.container #}
+
+  {# Mobile Navigation Panel #}
+  <nav id="mobile-nav"
+       class="site-header__mobile-nav"
+       aria-label="Mobile navigation">
+    {% for item in module.nav_links %}
+      <a href="{{ item.url.href }}"
+         {% if item.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {{ item.label }}
+      </a>
+    {% endfor %}
+    {% if module.cta_label %}
+      <a href="{{ module.cta_url.href }}" style="color: var(--color-primary); font-weight: 600;">
+        {{ module.cta_label }}
+      </a>
+    {% endif %}
+  </nav>
+
+</header>

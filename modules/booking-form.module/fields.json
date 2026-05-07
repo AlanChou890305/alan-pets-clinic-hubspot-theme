@@ -1,0 +1,83 @@
+[
+  {
+    "id": "form_title",
+    "name": "form_title",
+    "label": "Form Title",
+    "type": "text",
+    "default": "Book a Clinic Appointment"
+  },
+  {
+    "id": "step1_label",
+    "name": "step1_label",
+    "label": "Step 1 Label",
+    "type": "text",
+    "default": "Your Information"
+  },
+  {
+    "id": "step2_label",
+    "name": "step2_label",
+    "label": "Step 2 Label",
+    "type": "text",
+    "default": "Appointment Details"
+  },
+  {
+    "id": "step3_label",
+    "name": "step3_label",
+    "label": "Step 3 Label",
+    "type": "text",
+    "default": "Confirm & Submit"
+  },
+  {
+    "id": "services_table_id",
+    "name": "services_table_id",
+    "label": "Services HubDB Table (for dropdown)",
+    "type": "text",
+    "default": "clinic_services"
+  },
+  {
+    "id": "doctors_table_id",
+    "name": "doctors_table_id",
+    "label": "Doctors HubDB Table (for dropdown)",
+    "type": "text",
+    "default": "clinic_doctors"
+  },
+  {
+    "id": "submit_label",
+    "name": "submit_label",
+    "label": "Submit Button Label",
+    "type": "text",
+    "default": "Confirm Booking"
+  },
+  {
+    "id": "success_message",
+    "name": "success_message",
+    "label": "Success Message (after submission)",
+    "type": "text",
+    "default": "Thank you! We'll confirm your appointment by email within 1 business day."
+  },
+  {
+    "id": "hubspot_form_id",
+    "name": "hubspot_form_id",
+    "label": "HubSpot Form ID (from Forms tool)",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "id": "hubspot_portal_id",
+    "name": "hubspot_portal_id",
+    "label": "HubSpot Portal ID",
+    "type": "text",
+    "default": "245981171"
+  },
+  {
+    "id": "background_style",
+    "name": "background_style",
+    "label": "Background Style",
+    "type": "choice",
+    "choices": [
+      ["white", "White"],
+      ["teal", "Teal Light"]
+    ],
+    "default": "white"
+  }
+]

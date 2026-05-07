@@ -1,0 +1,138 @@
+{% set table_name = module.hubdb_table_id | default('clinic_services') %}
+{% set per_page   = module.items_per_page | default(4) %}
+
+{# Query HubDB — order by display_order asc #}
+{% if module.featured_only %}
+  {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order&is_popular__eq=true') %}
+{% else %}
+  {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order') %}
+{% endif %}
+
+{% set total_rows = rows | length %}
+
+{# Build category list for filter #}
+{% set categories = [] %}
+{% for row in rows %}
+  {% if row.category and row.category not in categories %}
+    {% set categories = categories + [row.category] %}
+  {% endif %}
+{% endfor %}
+
+<section class="section" aria-label="{{ module.section_heading }}">
+  <div class="container">
+
+    {# Section header #}
+    <div class="section-header">
+      <h2 class="section-header__title">{{ module.section_heading }}</h2>
+      {% if module.section_subheading %}
+        <p class="section-header__subtitle">{{ module.section_subheading }}</p>
+      {% endif %}
+    </div>
+
+    {# Services listing wrapper (JS hooks onto this) #}
+    <div class="services-listing"
+         data-per-page="{{ per_page }}"
+         id="services-listing">
+
+      {# Category filter — rendered only when not featured-only #}
+      {% if module.show_filter and not module.featured_only and categories | length > 1 %}
+        <div class="services-filter" role="group" aria-label="Filter by category">
+          <button class="services-filter__btn services-filter__btn--active"
+                  data-category="all">
+            All
+            <span class="services-filter__count">{{ total_rows }}</span>
+          </button>
+          {% for cat in categories %}
+            {% set cat_count = rows | selectattr('category', 'equalto', cat) | list | length %}
+            <button class="services-filter__btn" data-category="{{ cat | lower | replace(' ', '-') }}">
+              {{ cat }}
+              <span class="services-filter__count">{{ cat_count }}</span>
+            </button>
+          {% endfor %}
+        </div>
+
+        <p class="services-results-meta"></p>
+      {% endif %}
+
+      {# Cards grid #}
+      <div class="grid-4 services-grid">
+        {% for row in rows %}
+          <div class="service-card-wrap"
+               data-category="{{ row.category | lower | replace(' ', '-') }}">
+            <article class="service-card">
+
+              <div class="service-card__image-wrap">
+                {% if row.image and row.image.url %}
+                  <img src="{{ row.image.url }}"
+                       alt="{{ row.name }}"
+                       class="service-card__image"
+                       loading="lazy">
+                {% else %}
+                  <div class="service-card__image"
+                       style="background: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-primary-light) 100%); display:flex; align-items:center; justify-content:center; font-size:3rem;">
+                    🐾
+                  </div>
+                {% endif %}
+
+                {% if row.category %}
+                  <span class="badge badge--primary service-card__category">
+                    {{ row.category }}
+                  </span>
+                {% endif %}
+
+                {% if row.is_popular %}
+                  <span class="badge badge--accent service-card__category"
+                        style="top: auto; bottom: var(--space-3);">
+                    Popular
+                  </span>
+                {% endif %}
+              </div>
+
+              <div class="service-card__body">
+                <h3 class="service-card__title">{{ row.name }}</h3>
+                {% if row.description %}
+                  <p class="service-card__desc">
+                    {{ row.description | striptags | truncate(120) }}
+                  </p>
+                {% endif %}
+
+                <div class="service-card__footer">
+                  {% if row.duration %}
+                    <span class="service-card__duration">
+                      🕐 {{ row.duration }}
+                    </span>
+                  {% endif %}
+                  <a href="{{ module.book_cta_url.href }}?service={{ row.name | urlencode }}"
+                     class="btn btn--primary btn--sm">
+                    {{ module.book_cta_label }}
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+        {% else %}
+          <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 3rem 0;">
+            No services found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
+          </p>
+        {% endfor %}
+      </div>
+
+      {# Pagination container — populated by services-filter.js #}
+      {% if module.show_pagination and not module.featured_only %}
+        <div class="services-pagination pagination"></div>
+      {% endif %}
+
+    </div>{# /.services-listing #}
+
+    {# View All CTA — shown on homepage (featured_only mode) #}
+    {% if module.featured_only and module.view_all_label %}
+      <div style="text-align: center; margin-top: var(--space-10);">
+        <a href="{{ module.view_all_url.href }}" class="btn btn--outline btn--lg">
+          {{ module.view_all_label }}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>

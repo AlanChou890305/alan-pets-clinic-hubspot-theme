@@ -1,0 +1,21 @@
+[
+  {
+    "id": "badges",
+    "name": "badges",
+    "label": "Trust Badges",
+    "type": "group",
+    "occurrence": { "min": 2, "max": 6, "default": 4 },
+    "default": [
+      { "icon": "⭐", "value": "4.9★", "label": "Average Rating", "description": "From 1,000+ reviews" },
+      { "icon": "🏥", "value": "15+", "label": "Years of Experience", "description": "Serving pets since 2015" },
+      { "icon": "👩‍⚕️", "value": "12", "label": "Specialist Doctors", "description": "Board-certified vets" },
+      { "icon": "🐾", "value": "5,000+", "label": "Happy Patients", "description": "And counting" }
+    ],
+    "children": [
+      { "id": "badge_icon", "name": "icon", "label": "Icon (emoji or symbol)", "type": "text", "default": "⭐" },
+      { "id": "badge_value", "name": "value", "label": "Value / Stat", "type": "text", "default": "4.9★" },
+      { "id": "badge_label", "name": "label", "label": "Label", "type": "text", "default": "Rating" },
+      { "id": "badge_description", "name": "description", "label": "Description", "type": "text", "default": "From 1,000+ reviews" }
+    ]
+  }
+]

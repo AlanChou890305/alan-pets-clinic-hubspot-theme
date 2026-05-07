@@ -1,0 +1,21 @@
+<section class="section section--sm" style="background: var(--color-bg-soft);" aria-label="{{ module.section_heading }}">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-header__title">{{ module.section_heading }}</h2>
+      {% if module.section_subheading %}
+        <p class="section-header__subtitle">{{ module.section_subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="highlights__grid{% if module.layout == 'list' %}" style="grid-template-columns: 1fr;{% endif %}">
+      {% for item in module.items %}
+        <div class="highlight-item">
+          <div class="highlight-item__icon" aria-hidden="true">{{ item.icon }}</div>
+          <p class="highlight-item__text">{{ item.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

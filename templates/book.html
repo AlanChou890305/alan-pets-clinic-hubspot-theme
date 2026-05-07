@@ -1,0 +1,64 @@
+<!--
+  templateType: page
+  label: Book Appointment Page
+  isAvailableForNewContent: true
+  screenshotPath:
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ standard_header_includes }}
+
+  <title>{{ content.html_title }}</title>
+  {% if content.meta_description %}
+    <meta name="description" content="{{ content.meta_description }}">
+  {% endif %}
+
+  {{ require_css(get_asset_url("../css/main.css")) }}
+  {{ require_css(get_asset_url("../css/layout.css")) }}
+  {{ require_css(get_asset_url("../css/components.css")) }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-book">
+
+  {% global_partial path="../modules/global/header.module" %}
+
+  <main id="main-content">
+
+    {# Page Hero #}
+    {% module "page_hero"
+       path="../modules/page-hero.module",
+       page_title="Book Appointment",
+       tagline="Schedule your pet's visit in just a few minutes. We'll confirm within 1 business day.",
+       show_breadcrumb=true,
+       breadcrumb_parent_label="Home",
+       breadcrumb_parent_url={ href: "/" } %}
+
+    {# Contact Info + Map #}
+    {% module "contact_info"
+       path="../modules/contact-info.module",
+       section_heading="Find Us" %}
+
+    {# 3-Step Booking Form #}
+    {% module "booking_form"
+       path="../modules/booking-form.module",
+       form_title="Book a Clinic Appointment",
+       background_style="white" %}
+
+  </main>
+
+  {% global_partial path="../modules/global/footer.module" %}
+
+  {{ require_js(get_asset_url("../js/main.js")) }}
+  {{ require_js(get_asset_url("../js/form-steps.js")) }}
+  {{ standard_footer_includes }}
+
+</body>
+</html>
