@@ -2,23 +2,9 @@
 {% set per_page   = module.items_per_page | default(4) %}
 
 {% if module.featured_only %}
-  {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order&is_featured__eq=true&limit=' ~ per_page) %}
+  {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order&is_featured__eq=true') %}
 {% else %}
   {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order') %}
-{% endif %}
-
-{% set total_rows = rows | length %}
-{% set total_pages = (total_rows / per_page) | round(0, 'ceil') | int %}
-
-{# Pagination: HubSpot doesn't have built-in JS pagination for HubDB in HuBL,
-   so we use query param ?page=N for server-side pagination on the full listing. #}
-{% set current_page = request.query_dict.page | default(1) | int %}
-{% if current_page < 1 %}{% set current_page = 1 %}{% endif %}
-
-{% set display_rows = rows %}
-{% if not module.featured_only %}
-  {% set offset = (current_page - 1) * per_page %}
-  {% set display_rows = rows | slice(offset, offset + per_page) %}
 {% endif %}
 
 <section class="section" aria-label="{{ module.section_heading }}">
@@ -31,71 +17,57 @@
       {% endif %}
     </div>
 
-    <div class="grid-4">
-      {% for row in display_rows %}
-        <article class="doctor-card">
+    {# Client-side pagination wrapper — doctors-pagination.js handles show/hide #}
+    <div class="doctors-listing" data-per-page="{{ per_page }}">
 
-          <div class="doctor-card__photo-wrap">
-            {% if row.photo and row.photo.url %}
-              <img src="{{ row.photo.url }}"
-                   alt="Photo of {{ row.name }}"
-                   class="doctor-card__photo"
-                   loading="lazy">
-            {% else %}
-              <div class="doctor-card__photo-placeholder">👩‍⚕️</div>
-            {% endif %}
-          </div>
+      <div class="grid-4 doctors-grid">
+        {% for row in rows %}
+          <div class="doctor-card-wrap">
+            <article class="doctor-card">
 
-          <div class="doctor-card__body">
-            <h3 class="doctor-card__name">{{ row.name }}</h3>
-            {% if row.title %}
-              <p class="doctor-card__title">{{ row.title }}</p>
-            {% endif %}
-            {% if row.specialty %}
-              <p class="doctor-card__specialty">{{ row.specialty }}</p>
-            {% endif %}
-            {% if module.show_bio and row.bio %}
-              <div class="doctor-card__bio">
-                {{ row.bio | striptags | truncate(200) }}
+              <div class="doctor-card__photo-wrap">
+                {% if row.photo and row.photo.url %}
+                  <img src="{{ row.photo.url }}"
+                       alt="Photo of {{ row.name }}"
+                       class="doctor-card__photo"
+                       loading="lazy">
+                {% else %}
+                  <div class="doctor-card__photo-placeholder">👩‍⚕️</div>
+                {% endif %}
               </div>
-            {% endif %}
-          </div>
 
-        </article>
-      {% else %}
-        <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 3rem 0;">
-          No doctors found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
-        </p>
-      {% endfor %}
+              <div class="doctor-card__body">
+                <h3 class="doctor-card__name">{{ row.name }}</h3>
+                {% if row.title %}
+                  <p class="doctor-card__title">{{ row.title }}</p>
+                {% endif %}
+                {% if row.specialty %}
+                  <p class="doctor-card__specialty">{{ row.specialty }}</p>
+                {% endif %}
+                {% if module.show_bio and row.bio %}
+                  <div class="doctor-card__bio">
+                    {{ row.bio | striptags | truncate(200) }}
+                  </div>
+                {% endif %}
+              </div>
+
+            </article>
+          </div>
+        {% else %}
+          <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 3rem 0;">
+            No doctors found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
+          </p>
+        {% endfor %}
+      </div>
+
+      {# Pagination container — populated by doctors-pagination.js #}
+      {% if module.show_pagination and not module.featured_only %}
+        <div class="doctors-pagination pagination"></div>
+      {% endif %}
+
     </div>
 
-    {# Server-side pagination #}
-    {% if module.show_pagination and not module.featured_only and total_pages > 1 %}
-      <nav class="pagination" aria-label="Doctors page navigation">
-        {% if current_page > 1 %}
-          <a href="?page={{ current_page - 1 }}" class="pagination__btn" aria-label="Previous page">←</a>
-        {% else %}
-          <button class="pagination__btn" disabled aria-disabled="true">←</button>
-        {% endif %}
-
-        {% for p in range(1, total_pages + 1) %}
-          <a href="?page={{ p }}"
-             class="pagination__btn{% if p == current_page %} pagination__btn--active{% endif %}"
-             aria-label="Page {{ p }}"
-             {% if p == current_page %}aria-current="page"{% endif %}>
-            {{ p }}
-          </a>
-        {% endfor %}
-
-        {% if current_page < total_pages %}
-          <a href="?page={{ current_page + 1 }}" class="pagination__btn" aria-label="Next page">→</a>
-        {% else %}
-          <button class="pagination__btn" disabled aria-disabled="true">→</button>
-        {% endif %}
-      </nav>
-    {% endif %}
-
-    {# View All CTA (homepage mode) #}
+    {# View All CTA (homepage featured mode) #}
     {% if module.featured_only and module.view_all_label %}
       <div style="text-align: center; margin-top: var(--space-10);">
         <a href="{{ module.view_all_url.href }}" class="btn btn--outline btn--lg">
