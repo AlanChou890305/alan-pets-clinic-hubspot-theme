@@ -17,33 +17,31 @@
     <meta name="description" content="{{ content.meta_description }}">
   {% endif %}
 
-  {{ require_css(get_asset_url("../css/main.css")) }}
-  {{ require_css(get_asset_url("../css/layout.css")) }}
-  {{ require_css(get_asset_url("../css/components.css")) }}
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {{ require_css(get_asset_url("css/main.css")) }}
+  {{ require_css(get_asset_url("css/layout.css")) }}
+  {{ require_css(get_asset_url("css/components.css")) }}
 </head>
 
 <body class="page-doctors">
 
-  {% global_partial path="../modules/global/header.module" %}
+  {% module "site_header"
+     path="@theme/modules/global/header.module" %}
 
   <main id="main-content">
 
-    {# Page Hero #}
     {% module "page_hero"
-       path="../modules/page-hero.module",
+       path="@theme/modules/page-hero.module",
        page_title="Meet Our Doctors",
        tagline="Our team of board-certified veterinarians is dedicated to providing the highest standard of care for your pet.",
        show_breadcrumb=true,
-       breadcrumb_parent_label="Home",
-       breadcrumb_parent_url={ href: "/" } %}
+       breadcrumb_parent_label="Home" %}
 
-    {# Full Doctors Grid with Pagination + Bio #}
     {% module "doctors_grid"
-       path="../modules/doctors-hubdb.module",
+       path="@theme/modules/doctors-hubdb.module",
        featured_only=false,
        show_bio=true,
        show_pagination=true,
@@ -51,20 +49,19 @@
        section_heading="Our Veterinary Team",
        section_subheading="Every pet deserves a five-star experience — and a doctor who truly cares." %}
 
-    {# CTA Banner #}
     {% module "cta_banner"
-       path="../modules/cta-banner.module",
+       path="@theme/modules/cta-banner.module",
        heading="Book an Appointment with Our Team",
        subtext="Choose your preferred doctor when booking. We'll match you with the right specialist.",
        cta_label="Book an Appointment",
-       cta_url={ href: "/book" },
        style="primary" %}
 
   </main>
 
-  {% global_partial path="../modules/global/footer.module" %}
+  {% module "site_footer"
+     path="@theme/modules/global/footer.module" %}
 
-  {{ require_js(get_asset_url("../js/main.js")) }}
+  {{ require_js(get_asset_url("js/main.js")) }}
   {{ standard_footer_includes }}
 
 </body>

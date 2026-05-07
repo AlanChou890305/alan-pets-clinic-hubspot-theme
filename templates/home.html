@@ -17,35 +17,30 @@
     <meta name="description" content="{{ content.meta_description }}">
   {% endif %}
 
-  {# Theme stylesheets #}
-  {{ require_css(get_asset_url("../css/main.css")) }}
-  {{ require_css(get_asset_url("../css/layout.css")) }}
-  {{ require_css(get_asset_url("../css/components.css")) }}
-
-  {# Google Fonts #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {{ require_css(get_asset_url("css/main.css")) }}
+  {{ require_css(get_asset_url("css/layout.css")) }}
+  {{ require_css(get_asset_url("css/components.css")) }}
 </head>
 
 <body class="page-home">
 
-  {# Global Header #}
-  {% global_partial path="../modules/global/header.module" %}
+  {% module "site_header"
+     path="@theme/modules/global/header.module" %}
 
   <main id="main-content">
 
-    {# Hero Carousel #}
     {% module "hero_carousel"
-       path="../modules/hero-carousel.module" %}
+       path="@theme/modules/hero-carousel.module" %}
 
-    {# Trust Badges #}
     {% module "trust_badges"
-       path="../modules/trust-badges.module" %}
+       path="@theme/modules/trust-badges.module" %}
 
-    {# Featured Services (HubDB) #}
     {% module "featured_services"
-       path="../modules/services-hubdb.module",
+       path="@theme/modules/services-hubdb.module",
        featured_only=true,
        show_filter=false,
        show_pagination=false,
@@ -53,37 +48,32 @@
        section_heading="Popular Services",
        section_subheading="Our most-loved treatments, from wellness exams to specialty care.",
        book_cta_label="Book Now",
-       view_all_label="View All Services",
-       view_all_url={ href: "/services" } %}
+       view_all_label="View All Services" %}
 
-    {# Featured Doctors (HubDB) #}
     {% module "featured_doctors"
-       path="../modules/doctors-hubdb.module",
+       path="@theme/modules/doctors-hubdb.module",
        featured_only=true,
        show_bio=false,
        show_pagination=false,
        items_per_page=4,
        section_heading="Our Expert Veterinarians",
        section_subheading="Board-certified doctors with deep specializations and genuine compassion.",
-       view_all_label="Meet All Our Doctors",
-       view_all_url={ href: "/doctors" } %}
+       view_all_label="Meet All Our Doctors" %}
 
-    {# Booking Form #}
     {% module "booking_form"
-       path="../modules/booking-form.module",
+       path="@theme/modules/booking-form.module",
        form_title="Book an Appointment Online",
        background_style="teal" %}
 
   </main>
 
-  {# Global Footer #}
-  {% global_partial path="../modules/global/footer.module" %}
+  {% module "site_footer"
+     path="@theme/modules/global/footer.module" %}
 
-  {# Scripts #}
-  {{ require_js(get_asset_url("../js/main.js")) }}
-  {{ require_js(get_asset_url("../js/carousel.js")) }}
-  {{ require_js(get_asset_url("../js/services-filter.js")) }}
-  {{ require_js(get_asset_url("../js/form-steps.js")) }}
+  {{ require_js(get_asset_url("js/main.js")) }}
+  {{ require_js(get_asset_url("js/carousel.js")) }}
+  {{ require_js(get_asset_url("js/services-filter.js")) }}
+  {{ require_js(get_asset_url("js/form-steps.js")) }}
   {{ standard_footer_includes }}
 
 </body>

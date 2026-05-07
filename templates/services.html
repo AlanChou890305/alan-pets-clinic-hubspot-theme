@@ -17,37 +17,34 @@
     <meta name="description" content="{{ content.meta_description }}">
   {% endif %}
 
-  {{ require_css(get_asset_url("../css/main.css")) }}
-  {{ require_css(get_asset_url("../css/layout.css")) }}
-  {{ require_css(get_asset_url("../css/components.css")) }}
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {{ require_css(get_asset_url("css/main.css")) }}
+  {{ require_css(get_asset_url("css/layout.css")) }}
+  {{ require_css(get_asset_url("css/components.css")) }}
 </head>
 
 <body class="page-services">
 
-  {% global_partial path="../modules/global/header.module" %}
+  {% module "site_header"
+     path="@theme/modules/global/header.module" %}
 
   <main id="main-content">
 
-    {# Page Hero #}
     {% module "page_hero"
-       path="../modules/page-hero.module",
+       path="@theme/modules/page-hero.module",
        page_title="Our Clinic Services",
        tagline="From routine wellness exams to advanced surgical care — comprehensive veterinary services under one roof.",
        show_breadcrumb=true,
-       breadcrumb_parent_label="Home",
-       breadcrumb_parent_url={ href: "/" } %}
+       breadcrumb_parent_label="Home" %}
 
-    {# Trust Badges #}
     {% module "trust_badges"
-       path="../modules/trust-badges.module" %}
+       path="@theme/modules/trust-badges.module" %}
 
-    {# Full Services Listing with Filter + Pagination #}
     {% module "services_listing"
-       path="../modules/services-hubdb.module",
+       path="@theme/modules/services-hubdb.module",
        featured_only=false,
        show_filter=true,
        show_pagination=true,
@@ -56,25 +53,23 @@
        section_subheading="",
        book_cta_label="Book This Service" %}
 
-    {# Why Choose Us #}
     {% module "highlights"
-       path="../modules/highlights.module" %}
+       path="@theme/modules/highlights.module" %}
 
-    {# CTA Banner #}
     {% module "cta_banner"
-       path="../modules/cta-banner.module",
+       path="@theme/modules/cta-banner.module",
        heading="Ready to Book Your Pet's Next Visit?",
        subtext="Same-day appointments available. Book online in just a few minutes.",
        cta_label="Book an Appointment",
-       cta_url={ href: "/book" },
        style="primary" %}
 
   </main>
 
-  {% global_partial path="../modules/global/footer.module" %}
+  {% module "site_footer"
+     path="@theme/modules/global/footer.module" %}
 
-  {{ require_js(get_asset_url("../js/main.js")) }}
-  {{ require_js(get_asset_url("../js/services-filter.js")) }}
+  {{ require_js(get_asset_url("js/main.js")) }}
+  {{ require_js(get_asset_url("js/services-filter.js")) }}
   {{ standard_footer_includes }}
 
 </body>
