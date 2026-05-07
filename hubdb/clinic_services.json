@@ -58,85 +58,15 @@
     }
   ],
   "rows": [
-    {
-      "name":          "Wellness Exam",
-      "category":      "Wellness",
-      "description":   "<p>Comprehensive annual health check covering physical examination, vaccinations review, parasite screening, and personalised health advice for your pet.</p>",
-      "duration":      "30 minutes",
-      "is_popular":    true,
-      "display_order": 1
-    },
-    {
-      "name":          "Vaccinations",
-      "category":      "Wellness",
-      "description":   "<p>Core and lifestyle vaccinations to keep your pet protected against preventable diseases. We tailor the vaccination schedule to your pet's age, breed, and lifestyle.</p>",
-      "duration":      "20 minutes",
-      "is_popular":    true,
-      "display_order": 2
-    },
-    {
-      "name":          "Dental Cleaning",
-      "category":      "Dental",
-      "description":   "<p>Professional teeth cleaning under anaesthesia to remove plaque and tartar buildup, preventing periodontal disease and improving overall health.</p>",
-      "duration":      "60 – 90 minutes",
-      "is_popular":    true,
-      "display_order": 3
-    },
-    {
-      "name":          "Emergency Care",
-      "category":      "Emergency",
-      "description":   "<p>24/7 emergency and critical care services for life-threatening situations. Our team is always ready to provide immediate, life-saving treatment.</p>",
-      "duration":      "Varies",
-      "is_popular":    true,
-      "display_order": 4
-    },
-    {
-      "name":          "Spay & Neuter",
-      "category":      "Surgery",
-      "description":   "<p>Safe, routine surgical procedures to prevent unwanted pregnancies and reduce the risk of certain cancers and behavioural issues.</p>",
-      "duration":      "45 – 90 minutes",
-      "is_popular":    false,
-      "display_order": 5
-    },
-    {
-      "name":          "Orthopaedic Surgery",
-      "category":      "Surgery",
-      "description":   "<p>Specialist surgery for bone and joint conditions including fractures, cruciate ligament tears, and hip dysplasia in dogs and cats.</p>",
-      "duration":      "2 – 4 hours",
-      "is_popular":    false,
-      "display_order": 6
-    },
-    {
-      "name":          "Dermatology Consultation",
-      "category":      "Specialty",
-      "description":   "<p>Expert diagnosis and management of skin conditions, allergies, and coat disorders. Includes allergy testing and long-term treatment planning.</p>",
-      "duration":      "45 minutes",
-      "is_popular":    false,
-      "display_order": 7
-    },
-    {
-      "name":          "Digital X-Ray",
-      "category":      "Diagnostic",
-      "description":   "<p>High-resolution digital radiography for accurate diagnosis of bone, joint, chest, and abdominal conditions with immediate results.</p>",
-      "duration":      "20 – 30 minutes",
-      "is_popular":    false,
-      "display_order": 8
-    },
-    {
-      "name":          "Ultrasound Imaging",
-      "category":      "Diagnostic",
-      "description":   "<p>Non-invasive diagnostic imaging to evaluate internal organs, detect tumours, assess pregnancy, and guide biopsies or aspirates.</p>",
-      "duration":      "30 – 45 minutes",
-      "is_popular":    false,
-      "display_order": 9
-    },
-    {
-      "name":          "Nutrition Counselling",
-      "category":      "Specialty",
-      "description":   "<p>Personalised dietary assessment and nutritional guidance to optimise your pet's weight, energy, and long-term health outcomes.</p>",
-      "duration":      "30 minutes",
-      "is_popular":    false,
-      "display_order": 10
-    }
+    { "values": { "name": "Wellness Exam",           "category": "Wellness",   "description": "<p>Comprehensive annual health check covering physical examination, vaccinations review, parasite screening, and personalised health advice for your pet.</p>", "duration": "30 minutes",      "is_popular": true,  "display_order": 1  } },
+    { "values": { "name": "Vaccinations",            "category": "Wellness",   "description": "<p>Core and lifestyle vaccinations to keep your pet protected against preventable diseases. We tailor the vaccination schedule to your pet's age, breed, and lifestyle.</p>", "duration": "20 minutes",      "is_popular": true,  "display_order": 2  } },
+    { "values": { "name": "Dental Cleaning",         "category": "Dental",     "description": "<p>Professional teeth cleaning under anaesthesia to remove plaque and tartar buildup, preventing periodontal disease and improving overall health.</p>", "duration": "60-90 minutes",   "is_popular": true,  "display_order": 3  } },
+    { "values": { "name": "Emergency Care",          "category": "Emergency",  "description": "<p>24/7 emergency and critical care services for life-threatening situations. Our team is always ready to provide immediate, life-saving treatment.</p>", "duration": "Varies",          "is_popular": true,  "display_order": 4  } },
+    { "values": { "name": "Spay & Neuter",           "category": "Surgery",    "description": "<p>Safe, routine surgical procedures to prevent unwanted pregnancies and reduce the risk of certain cancers and behavioural issues.</p>", "duration": "45-90 minutes",   "is_popular": false, "display_order": 5  } },
+    { "values": { "name": "Orthopaedic Surgery",     "category": "Surgery",    "description": "<p>Specialist surgery for bone and joint conditions including fractures, cruciate ligament tears, and hip dysplasia in dogs and cats.</p>", "duration": "2-4 hours",       "is_popular": false, "display_order": 6  } },
+    { "values": { "name": "Dermatology Consultation","category": "Specialty",  "description": "<p>Expert diagnosis and management of skin conditions, allergies, and coat disorders. Includes allergy testing and long-term treatment planning.</p>", "duration": "45 minutes",      "is_popular": false, "display_order": 7  } },
+    { "values": { "name": "Digital X-Ray",           "category": "Diagnostic", "description": "<p>High-resolution digital radiography for accurate diagnosis of bone, joint, chest, and abdominal conditions with immediate results.</p>", "duration": "20-30 minutes",   "is_popular": false, "display_order": 8  } },
+    { "values": { "name": "Ultrasound Imaging",      "category": "Diagnostic", "description": "<p>Non-invasive diagnostic imaging to evaluate internal organs, detect tumours, assess pregnancy, and guide biopsies or aspirates.</p>", "duration": "30-45 minutes",   "is_popular": false, "display_order": 9  } },
+    { "values": { "name": "Nutrition Counselling",   "category": "Specialty",  "description": "<p>Personalised dietary assessment and nutritional guidance to optimise your pet's weight, energy, and long-term health outcomes.</p>", "duration": "30 minutes",      "is_popular": false, "display_order": 10 } }
   ]
 }

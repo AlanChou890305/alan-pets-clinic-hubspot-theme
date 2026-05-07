@@ -49,53 +49,11 @@
     }
   ],
   "rows": [
-    {
-      "name":          "Dr. Emily Carter",
-      "title":         "DVM, Chief Veterinarian",
-      "specialty":     "Small Animal Medicine & Internal Medicine",
-      "bio":           "<p>Dr. Carter has over 15 years of experience in small animal medicine. She leads our clinical team and is passionate about preventive care and building long-term relationships with patients and their families. A graduate of UC Davis School of Veterinary Medicine, she holds board certification in internal medicine.</p>",
-      "is_featured":   true,
-      "display_order": 1
-    },
-    {
-      "name":          "Dr. Jessica Lee",
-      "title":         "DVM, DABVP (Feline)",
-      "specialty":     "Feline & Exotic Animal Specialist",
-      "bio":           "<p>Dr. Lee is our feline and exotic animal expert, with board certification from the American Board of Veterinary Practitioners. She has a special interest in cat-friendly handling techniques and exotic species including rabbits, birds, and reptiles.</p>",
-      "is_featured":   true,
-      "display_order": 2
-    },
-    {
-      "name":          "Dr. Marcus Reed",
-      "title":         "DVM, DACVS",
-      "specialty":     "Surgery & Orthopaedics",
-      "bio":           "<p>Dr. Reed is our lead surgeon with board certification in veterinary surgery. He specialises in orthopaedic procedures, soft tissue surgery, and minimally invasive techniques. He has performed over 2,000 successful surgeries and is dedicated to excellent post-operative care.</p>",
-      "is_featured":   true,
-      "display_order": 3
-    },
-    {
-      "name":          "Dr. Sophia Nguyen",
-      "title":         "DVM, MS",
-      "specialty":     "Dermatology & Nutrition",
-      "bio":           "<p>Dr. Nguyen completed her residency in veterinary dermatology and holds a Master's in clinical nutrition. She manages complex allergy cases, skin disorders, and nutritional consultations. She is committed to evidence-based medicine and client education.</p>",
-      "is_featured":   true,
-      "display_order": 4
-    },
-    {
-      "name":          "Dr. James Thornton",
-      "title":         "DVM",
-      "specialty":     "Preventive Care & Vaccination",
-      "bio":           "<p>Dr. Thornton joined PawClinic in 2020 with a focus on preventive medicine and community health. He is known for his gentle approach with anxious patients and his thorough wellness consultations.</p>",
-      "is_featured":   false,
-      "display_order": 5
-    },
-    {
-      "name":          "Dr. Priya Sharma",
-      "title":         "DVM, DACVIM (Oncology)",
-      "specialty":     "Oncology & Diagnostics",
-      "bio":           "<p>Dr. Sharma is our oncology specialist, helping pets and their families navigate cancer diagnoses with compassion and expertise. She coordinates closely with our diagnostic imaging team to develop comprehensive treatment plans.</p>",
-      "is_featured":   false,
-      "display_order": 6
-    }
+    { "values": { "name": "Dr. Emily Carter",  "title": "DVM, Chief Veterinarian",     "specialty": "Small Animal Medicine & Internal Medicine", "bio": "<p>Dr. Carter has over 15 years of experience in small animal medicine. She leads our clinical team and is passionate about preventive care and building long-term relationships with patients and their families.</p>", "is_featured": true,  "display_order": 1 } },
+    { "values": { "name": "Dr. Jessica Lee",   "title": "DVM, DABVP (Feline)",         "specialty": "Feline & Exotic Animal Specialist",          "bio": "<p>Dr. Lee is our feline and exotic animal expert, with board certification from the American Board of Veterinary Practitioners. She has a special interest in cat-friendly handling techniques and exotic species.</p>",  "is_featured": true,  "display_order": 2 } },
+    { "values": { "name": "Dr. Marcus Reed",   "title": "DVM, DACVS",                  "specialty": "Surgery & Orthopaedics",                     "bio": "<p>Dr. Reed is our lead surgeon with board certification in veterinary surgery. He specialises in orthopaedic procedures, soft tissue surgery, and minimally invasive techniques.</p>",                          "is_featured": true,  "display_order": 3 } },
+    { "values": { "name": "Dr. Sophia Nguyen", "title": "DVM, MS",                     "specialty": "Dermatology & Nutrition",                    "bio": "<p>Dr. Nguyen completed her residency in veterinary dermatology and holds a Master's in clinical nutrition. She manages complex allergy cases, skin disorders, and nutritional consultations.</p>",              "is_featured": true,  "display_order": 4 } },
+    { "values": { "name": "Dr. James Thornton","title": "DVM",                         "specialty": "Preventive Care & Vaccination",              "bio": "<p>Dr. Thornton joined PawClinic in 2020 with a focus on preventive medicine and community health. He is known for his gentle approach with anxious patients and thorough wellness consultations.</p>",      "is_featured": false, "display_order": 5 } },
+    { "values": { "name": "Dr. Priya Sharma",  "title": "DVM, DACVIM (Oncology)",      "specialty": "Oncology & Diagnostics",                    "bio": "<p>Dr. Sharma is our oncology specialist, helping pets and their families navigate cancer diagnoses with compassion and expertise. She coordinates closely with our diagnostic imaging team.</p>",          "is_featured": false, "display_order": 6 } }
   ]
 }

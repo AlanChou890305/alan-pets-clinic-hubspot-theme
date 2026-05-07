@@ -1,0 +1,11 @@
+name,category,description,duration,is_popular,display_order
+Wellness Exam,Wellness,Comprehensive annual health check covering physical examination vaccinations review parasite screening and personalised health advice for your pet.,30 minutes,true,1
+Vaccinations,Wellness,Core and lifestyle vaccinations to keep your pet protected against preventable diseases. We tailor the vaccination schedule to your pet's age breed and lifestyle.,20 minutes,true,2
+Dental Cleaning,Dental,Professional teeth cleaning under anaesthesia to remove plaque and tartar buildup preventing periodontal disease and improving overall health.,60-90 minutes,true,3
+Emergency Care,Emergency,24/7 emergency and critical care services for life-threatening situations. Our team is always ready to provide immediate life-saving treatment.,Varies,true,4
+Spay & Neuter,Surgery,Safe routine surgical procedures to prevent unwanted pregnancies and reduce the risk of certain cancers and behavioural issues.,45-90 minutes,false,5
+Orthopaedic Surgery,Surgery,Specialist surgery for bone and joint conditions including fractures cruciate ligament tears and hip dysplasia in dogs and cats.,2-4 hours,false,6
+Dermatology Consultation,Specialty,Expert diagnosis and management of skin conditions allergies and coat disorders. Includes allergy testing and long-term treatment planning.,45 minutes,false,7
+Digital X-Ray,Diagnostic,High-resolution digital radiography for accurate diagnosis of bone joint chest and abdominal conditions with immediate results.,20-30 minutes,false,8
+Ultrasound Imaging,Diagnostic,Non-invasive diagnostic imaging to evaluate internal organs detect tumours assess pregnancy and guide biopsies or aspirates.,30-45 minutes,false,9
+Nutrition Counselling,Specialty,Personalised dietary assessment and nutritional guidance to optimise your pet's weight energy and long-term health outcomes.,30 minutes,false,10
