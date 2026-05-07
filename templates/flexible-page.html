@@ -1,6 +1,6 @@
 <!--
   templateType: page
-  label: Book Appointment Page
+  label: Flexible Page
   isAvailableForNewContent: true
   screenshotPath:
 -->
@@ -26,28 +26,15 @@
   {{ require_css(get_asset_url("css/components.css")) }}
 </head>
 
-<body class="page-book">
+<body>
 
   {% module "site_header"
      path="@theme/modules/global/header.module" %}
 
   <main id="main-content">
 
-    {% module "page_hero"
-       path="@theme/modules/page-hero.module",
-       page_title="Book Appointment",
-       tagline="Schedule your pet's visit in just a few minutes. We'll confirm within 1 business day.",
-       show_breadcrumb=true,
-       breadcrumb_parent_label="Home" %}
-
-    {% module "contact_info"
-       path="@theme/modules/contact-info.module",
-       section_heading="Find Us" %}
-
-    {% module "booking_form"
-       path="@theme/modules/booking-form.module",
-       form_title="Book a Clinic Appointment",
-       background_style="white" %}
+    {% dnd_area "main_content" label="Page Content" %}
+    {% enddnd_area %}
 
   </main>
 
@@ -55,7 +42,6 @@
      path="@theme/modules/global/footer.module" %}
 
   {{ require_js(get_asset_url("js/main.js")) }}
-  {{ require_js(get_asset_url("js/form-steps.js")) }}
   {{ standard_footer_includes }}
 
 </body>
