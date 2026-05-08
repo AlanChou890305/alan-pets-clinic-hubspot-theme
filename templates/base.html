@@ -1,8 +1,7 @@
 <!--
   templateType: page
-  label: Flexible Page
+  label: Base Page
   isAvailableForNewContent: true
-  screenshotPath:
 -->
 <!DOCTYPE html>
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
@@ -29,17 +28,23 @@
 <body>
 
   {% module "site_header"
-     path="@theme/modules/global/header.module" %}
+     path="alan-pets-clinic-hubspot-theme/modules/global/header.module"
+     label="Global Header" %}
 
-  <main id="main-content">
+  {% dnd_area "main_content" label="Page Content" %}
 
-    {% dnd_area "main_content" label="Page Content" %}
-    {% enddnd_area %}
+    {% dnd_section label="Body Content" %}
+      {% dnd_column width=12 %}
+        {% dnd_row %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
 
-  </main>
+  {% end_dnd_area %}
 
   {% module "site_footer"
-     path="@theme/modules/global/footer.module" %}
+     path="alan-pets-clinic-hubspot-theme/modules/global/footer.module"
+     label="Global Footer" %}
 
   {{ require_js(get_asset_url("js/main.js")) }}
   {{ standard_footer_includes }}
