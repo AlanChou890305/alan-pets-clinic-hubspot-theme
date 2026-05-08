@@ -11,7 +11,7 @@
         {% if module.social_links %}
           <div class="site-footer__social">
             {% for social in module.social_links %}
-              <a href="{{ social.url.href }}"
+              <a href="{{ social.url.url.href }}"
                  class="site-footer__social-link"
                  aria-label="{{ social.platform }}"
                  {% if social.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
@@ -28,9 +28,9 @@
         <ul class="site-footer__nav-list">
           {% for item in module.nav_links %}
             <li>
-              <a href="{{ item.url.href }}"
+              <a href="{{ item.url.url.href }}"
                  {% if item.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
-                {{ item.label }}
+                {{ item.nav_link_text }}
               </a>
             </li>
           {% endfor %}

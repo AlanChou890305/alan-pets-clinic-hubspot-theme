@@ -44,14 +44,14 @@
       "default": 3
     },
     "default": [
-      { "label": "Home", "url": { "href": "/" } },
-      { "label": "Services", "url": { "href": "/services" } },
-      { "label": "Our Doctors", "url": { "href": "/doctors" } }
+      { "nav_link_text": "Home", "url": { "url": { "href": "/", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } },
+      { "nav_link_text": "Services", "url": { "url": { "href": "/services", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } },
+      { "nav_link_text": "Our Doctors", "url": { "url": { "href": "/doctors", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } }
     ],
     "children": [
       {
         "id": "nav_links_label",
-        "name": "label",
+        "name": "nav_link_text",
         "label": "Link Label",
         "type": "text",
         "default": "Page"
@@ -61,7 +61,7 @@
         "name": "url",
         "label": "Link URL",
         "type": "link",
-        "default": { "href": "/" }
+        "default": { "url": { "href": "/", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
       }
     ]
   },
@@ -81,6 +81,6 @@
     "required": false,
     "locked": false,
     "type": "link",
-    "default": { "href": "/book" }
+    "default": { "url": { "href": "/book", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
   }
 ]

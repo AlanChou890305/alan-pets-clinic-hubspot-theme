@@ -23,9 +23,9 @@
       {# Desktop Navigation #}
       <nav class="site-header__nav" aria-label="Main navigation">
         {% for item in module.nav_links %}
-          <a href="{{ item.url.href }}"
+          <a href="{{ item.url.url.href }}"
              {% if item.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
-            {{ item.label }}
+            {{ item.nav_link_text }}
           </a>
         {% endfor %}
       </nav>
@@ -33,7 +33,7 @@
       {# CTA + Mobile hamburger #}
       <div class="site-header__actions">
         {% if module.cta_label %}
-          <a href="{{ module.cta_url.href }}"
+          <a href="{{ module.cta_url.url.href }}"
              class="btn btn--primary"
              {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
             {{ module.cta_label }}
@@ -58,13 +58,13 @@
        class="site-header__mobile-nav"
        aria-label="Mobile navigation">
     {% for item in module.nav_links %}
-      <a href="{{ item.url.href }}"
+      <a href="{{ item.url.url.href }}"
          {% if item.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
-        {{ item.label }}
+        {{ item.nav_link_text }}
       </a>
     {% endfor %}
     {% if module.cta_label %}
-      <a href="{{ module.cta_url.href }}" style="color: var(--color-primary); font-weight: 600;">
+      <a href="{{ module.cta_url.url.href }}" style="color: var(--color-primary); font-weight: 600;">
         {{ module.cta_label }}
       </a>
     {% endif %}

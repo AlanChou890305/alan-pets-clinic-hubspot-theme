@@ -20,14 +20,14 @@
     "type": "group",
     "occurrence": { "min": 1, "max": 8, "default": 4 },
     "default": [
-      { "label": "Home", "url": { "href": "/" } },
-      { "label": "Services", "url": { "href": "/services" } },
-      { "label": "Our Doctors", "url": { "href": "/doctors" } },
-      { "label": "Book Appointment", "url": { "href": "/book" } }
+      { "nav_link_text": "Home", "url": { "url": { "href": "/", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } },
+      { "nav_link_text": "Services", "url": { "url": { "href": "/services", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } },
+      { "nav_link_text": "Our Doctors", "url": { "url": { "href": "/doctors", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } },
+      { "nav_link_text": "Book Appointment", "url": { "url": { "href": "/book", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } }
     ],
     "children": [
-      { "id": "nav_label", "name": "label", "label": "Label", "type": "text", "default": "Page" },
-      { "id": "nav_url", "name": "url", "label": "URL", "type": "link", "default": { "href": "/" } }
+      { "id": "nav_label", "name": "nav_link_text", "label": "Label", "type": "text", "default": "Page" },
+      { "id": "nav_url", "name": "url", "label": "URL", "type": "link", "default": { "url": { "href": "/", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false } }
     ]
   },
   {
@@ -81,14 +81,14 @@
     "type": "group",
     "occurrence": { "min": 0, "max": 6, "default": 3 },
     "default": [
-      { "platform": "Facebook", "icon": "f", "url": { "href": "#" } },
-      { "platform": "Instagram", "icon": "ig", "url": { "href": "#" } },
-      { "platform": "Twitter/X", "icon": "x", "url": { "href": "#" } }
+      { "platform": "Facebook", "icon": "f", "url": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true, "no_follow": false } },
+      { "platform": "Instagram", "icon": "ig", "url": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true, "no_follow": false } },
+      { "platform": "Twitter/X", "icon": "x", "url": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true, "no_follow": false } }
     ],
     "children": [
       { "id": "social_platform", "name": "platform", "label": "Platform Name", "type": "text", "default": "Facebook" },
       { "id": "social_icon", "name": "icon", "label": "Icon Letter/Symbol", "type": "text", "default": "f" },
-      { "id": "social_url", "name": "url", "label": "URL", "type": "link", "default": { "href": "#" } }
+      { "id": "social_url", "name": "url", "label": "URL", "type": "link", "default": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true, "no_follow": false } }
     ]
   },
   {
