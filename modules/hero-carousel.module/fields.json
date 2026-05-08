@@ -13,9 +13,9 @@
         "heading": "Compassionate Care for Every Pet",
         "subheading": "Our board-certified veterinarians provide expert care with a personal touch.",
         "cta_primary_label": "Book Appointment",
-        "cta_primary_url": { "href": "/book" },
+        "cta_primary_url": { "url": { "href": "/book", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false },
         "cta_secondary_label": "Our Services",
-        "cta_secondary_url": { "href": "/services" }
+        "cta_secondary_url": { "url": { "href": "/services", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
       },
       {
         "image": { "src": "", "alt": "Advanced Diagnostics" },
@@ -24,9 +24,9 @@
         "heading": "Advanced Diagnostics You Can Trust",
         "subheading": "From routine checkups to complex diagnostics, we have the technology to care for your pet.",
         "cta_primary_label": "View Services",
-        "cta_primary_url": { "href": "/services" },
+        "cta_primary_url": { "url": { "href": "/services", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false },
         "cta_secondary_label": "",
-        "cta_secondary_url": { "href": "" }
+        "cta_secondary_url": { "url": { "href": "", "type": "EXTERNAL" }, "open_in_new_tab": false, "no_follow": false }
       },
       {
         "image": { "src": "", "alt": "Meet Our Team" },
@@ -35,9 +35,9 @@
         "heading": "Your Pet Deserves the Best Care",
         "subheading": "Meet our team of specialists dedicated to keeping your pet healthy and happy.",
         "cta_primary_label": "Meet Our Doctors",
-        "cta_primary_url": { "href": "/doctors" },
+        "cta_primary_url": { "url": { "href": "/doctors", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false },
         "cta_secondary_label": "",
-        "cta_secondary_url": { "href": "" }
+        "cta_secondary_url": { "url": { "href": "", "type": "EXTERNAL" }, "open_in_new_tab": false, "no_follow": false }
       }
     ],
     "children": [
@@ -90,7 +90,7 @@
         "name": "cta_primary_url",
         "label": "Primary CTA URL",
         "type": "link",
-        "default": { "href": "/book" }
+        "default": { "url": { "href": "/book", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
       },
       {
         "id": "slides_cta_secondary_label",
@@ -104,7 +104,7 @@
         "name": "cta_secondary_url",
         "label": "Secondary CTA URL",
         "type": "link",
-        "default": { "href": "" }
+        "default": { "url": { "href": "", "type": "EXTERNAL" }, "open_in_new_tab": false, "no_follow": false }
       }
     ]
   },

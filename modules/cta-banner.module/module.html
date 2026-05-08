@@ -23,7 +23,7 @@
       </p>
     {% endif %}
     {% if module.cta_label %}
-      <a href="{{ module.cta_url.href }}"
+      <a href="{{ module.cta_url.url.href }}"
          class="btn {{ btn_styles[module.style] | default('btn--white') }} btn--lg"
          {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
         {{ module.cta_label }}

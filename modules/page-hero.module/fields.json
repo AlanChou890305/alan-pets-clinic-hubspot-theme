@@ -32,6 +32,6 @@
     "name": "breadcrumb_parent_url",
     "label": "Parent Breadcrumb URL",
     "type": "link",
-    "default": { "href": "/" }
+    "default": { "url": { "href": "/", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
   }
 ]

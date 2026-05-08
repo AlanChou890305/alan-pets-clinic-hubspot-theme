@@ -62,6 +62,6 @@
     "name": "view_all_url",
     "label": "View All Button URL",
     "type": "link",
-    "default": { "href": "/doctors" }
+    "default": { "url": { "href": "/doctors", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
   }
 ]

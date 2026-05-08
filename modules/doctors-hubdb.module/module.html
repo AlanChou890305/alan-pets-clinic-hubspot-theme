@@ -70,7 +70,7 @@
     {# View All CTA (homepage featured mode) #}
     {% if module.featured_only and module.view_all_label %}
       <div style="text-align: center; margin-top: var(--space-10);">
-        <a href="{{ module.view_all_url.href }}" class="btn btn--outline btn--lg">
+        <a href="{{ module.view_all_url.url.href }}" class="btn btn--outline btn--lg">
           {{ module.view_all_label }}
         </a>
       </div>

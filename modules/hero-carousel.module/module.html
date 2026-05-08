@@ -38,14 +38,14 @@
 
             <div class="hero-carousel__actions">
               {% if slide.cta_primary_label %}
-                <a href="{{ slide.cta_primary_url.href }}"
+                <a href="{{ slide.cta_primary_url.url.href }}"
                    class="btn btn--primary btn--lg"
                    {% if slide.cta_primary_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
                   {{ slide.cta_primary_label }}
                 </a>
               {% endif %}
               {% if slide.cta_secondary_label %}
-                <a href="{{ slide.cta_secondary_url.href }}"
+                <a href="{{ slide.cta_secondary_url.url.href }}"
                    class="btn btn--white btn--lg"
                    {% if slide.cta_secondary_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
                   {{ slide.cta_secondary_label }}

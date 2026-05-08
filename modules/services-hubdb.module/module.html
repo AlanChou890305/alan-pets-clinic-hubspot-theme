@@ -102,7 +102,7 @@
                       🕐 {{ row.duration }}
                     </span>
                   {% endif %}
-                  <a href="{{ module.book_cta_url.href }}?service={{ row.name | urlencode }}"
+                  <a href="{{ module.book_cta_url.url.href }}?service={{ row.name | urlencode }}"
                      class="btn btn--primary btn--sm">
                     {{ module.book_cta_label }}
                   </a>
@@ -128,7 +128,7 @@
     {# View All CTA — shown on homepage (featured_only mode) #}
     {% if module.featured_only and module.view_all_label %}
       <div style="text-align: center; margin-top: var(--space-10);">
-        <a href="{{ module.view_all_url.href }}" class="btn btn--outline btn--lg">
+        <a href="{{ module.view_all_url.url.href }}" class="btn btn--outline btn--lg">
           {{ module.view_all_label }}
         </a>
       </div>

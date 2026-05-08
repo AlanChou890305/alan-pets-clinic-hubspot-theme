@@ -16,8 +16,8 @@
             <div>
               <div class="contact-item__label">Address</div>
               <div class="contact-item__value">{{ module.address }}</div>
-              {% if module.directions_url.href %}
-                <a href="{{ module.directions_url.href }}"
+              {% if module.directions_url.url.href %}
+                <a href="{{ module.directions_url.url.href }}"
                    target="_blank"
                    rel="noopener noreferrer"
                    style="font-size:var(--font-size-sm); color:var(--color-primary); margin-top:4px; display:inline-block;">
@@ -76,7 +76,7 @@
               <div class="contact-item__label">Clinic Hours</div>
               {% for row in module.hours %}
                 <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: 4px;">
-                  <strong style="color: var(--color-text);">{{ row.label }}:</strong> {{ row.time }}
+                  <strong style="color: var(--color-text);">{{ row.days }}:</strong> {{ row.time }}
                 </div>
               {% endfor %}
             </div>

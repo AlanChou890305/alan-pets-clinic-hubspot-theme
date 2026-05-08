@@ -3,7 +3,7 @@
 
     {% if module.show_breadcrumb %}
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="{{ module.breadcrumb_parent_url.href }}">{{ module.breadcrumb_parent_label }}</a>
+        <a href="{{ module.breadcrumb_parent_url.url.href }}">{{ module.breadcrumb_parent_label }}</a>
         <span class="breadcrumb__separator" aria-hidden="true">/</span>
         <span aria-current="page">{{ module.page_title }}</span>
       </nav>

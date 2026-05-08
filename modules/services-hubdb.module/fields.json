@@ -62,7 +62,7 @@
     "name": "book_cta_url",
     "label": "Book Button URL",
     "type": "link",
-    "default": { "href": "/book" }
+    "default": { "url": { "href": "/book", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
   },
   {
     "id": "view_all_label",
@@ -76,6 +76,6 @@
     "name": "view_all_url",
     "label": "View All Button URL",
     "type": "link",
-    "default": { "href": "/services" }
+    "default": { "url": { "href": "/services", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
   }
 ]

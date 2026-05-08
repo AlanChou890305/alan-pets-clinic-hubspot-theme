@@ -25,7 +25,7 @@
     "name": "cta_url",
     "label": "CTA Button URL",
     "type": "link",
-    "default": { "href": "/book" }
+    "default": { "url": { "href": "/book", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
   },
   {
     "id": "style",

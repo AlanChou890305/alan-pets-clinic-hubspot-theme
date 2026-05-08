@@ -41,12 +41,12 @@
     "type": "group",
     "occurrence": { "min": 1, "max": 7, "default": 3 },
     "default": [
-      { "label": "Mon – Fri", "time": "8:00 AM – 7:00 PM" },
-      { "label": "Saturday", "time": "9:00 AM – 5:00 PM" },
-      { "label": "Sunday", "time": "Emergency Only" }
+      { "days": "Mon – Fri", "time": "8:00 AM – 7:00 PM" },
+      { "days": "Saturday", "time": "9:00 AM – 5:00 PM" },
+      { "days": "Sunday", "time": "Emergency Only" }
     ],
     "children": [
-      { "id": "hours_label", "name": "label", "label": "Days", "type": "text", "default": "Mon – Fri" },
+      { "id": "hours_label", "name": "days", "label": "Days", "type": "text", "default": "Mon – Fri" },
       { "id": "hours_time",  "name": "time",  "label": "Hours", "type": "text", "default": "8:00 AM – 7:00 PM" }
     ]
   },
@@ -55,7 +55,7 @@
     "name": "directions_url",
     "label": "Google Maps Directions URL",
     "type": "link",
-    "default": { "href": "https://maps.google.com" }
+    "default": { "url": { "href": "https://maps.google.com", "type": "EXTERNAL" }, "open_in_new_tab": true, "no_follow": false }
   },
   {
     "id": "map_embed_code",
