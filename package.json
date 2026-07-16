@@ -1,0 +1,21 @@
+{
+  "name": "alan-pets-clinic-hubspot-theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss src/css/main.css -o css/main.css",
+    "watch": "postcss src/css/main.css -o css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.14",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
+    "tailwindcss": "^4.2.4"
+  }
+}

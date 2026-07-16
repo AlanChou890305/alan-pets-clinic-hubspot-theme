@@ -1,0 +1,8 @@
+node_modules/
+src/
+.gitignore
+.hsignore
+package.json
+package-lock.json
+postcss.config.js
+tailwind.config.js
