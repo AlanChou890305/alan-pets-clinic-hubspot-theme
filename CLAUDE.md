@@ -148,11 +148,12 @@ Active work plan (see the approved plan file for full detail):
    `stats-bar`, `problem-solution`, `how-it-works`, `patient-testimonials` (reused),
    `faq-accordion` (+ `js/faq-accordion.js`), `booking-form` (reused, anchored at
    `#booking`), and `final-cta-banner`. Campaign styles live in `src/css/campaign.css`.
-6. **Phase 6** — wire a real HubSpot Form into `booking-form.module` (it currently
-   only shows a client-side success message; `hubspot_form_id` is unset so no lead
-   is captured). Portal ID default is already `245981171`. Remaining steps are manual
-   HubSpot-UI actions — see `SETUP.md` (includes a note that the custom step UI's
-   values are not yet mapped into the embedded HubSpot form submission).
+6. **Phase 6** ✅ (code) — `booking-form.module` submits the custom 3-step UI to the
+   **HubSpot Forms Submissions API v3** (`js/form-steps.js`), mapping to standard
+   contact properties (firstname/lastname/email/phone/message). Portal ID default is
+   `245981171`; a `hubspot_region` field (na1/eu1) avoids code edits. With no form GUID
+   it stays in client-side demo mode. Remaining step is creating the Form in the
+   HubSpot UI and pasting its GUID — see `SETUP.md`.
 
 All manual HubSpot-UI steps (pages, dynamic pages, languages, form) are collected in
 **`SETUP.md`** at the repo root.

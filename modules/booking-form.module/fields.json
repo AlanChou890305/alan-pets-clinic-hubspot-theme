@@ -70,6 +70,18 @@
     "default": "245981171"
   },
   {
+    "id": "hubspot_region",
+    "name": "hubspot_region",
+    "label": "HubSpot Data Center Region",
+    "type": "choice",
+    "choices": [
+      ["na1", "North America (na1)"],
+      ["eu1", "Europe (eu1)"]
+    ],
+    "default": "na1",
+    "help_text": "Match your portal's data center. Most portals are na1."
+  },
+  {
     "id": "background_style",
     "name": "background_style",
     "label": "Background Style",

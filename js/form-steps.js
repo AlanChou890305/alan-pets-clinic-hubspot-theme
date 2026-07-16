@@ -74,7 +74,99 @@
       summaryEl.innerHTML = rows || '<p style="font-size:.875rem;color:#6B7280">No information entered yet.</p>';
     }
 
-    /* Wire up Next / Prev buttons */
+    function val(id) {
+      var el = wrap.querySelector('#' + id);
+      return el ? el.value.trim() : '';
+    }
+
+    function showSuccess() {
+      var success = wrap.querySelector('#booking-success');
+      var panel = success ? success.closest('.booking-form__panel') : null;
+      if (success) success.style.display = 'block';
+      if (panel) {
+        var nav = panel.querySelector('.booking-form__nav');
+        if (nav) nav.style.display = 'none';
+        var summary = panel.querySelector('.booking-confirm__summary');
+        if (summary) summary.style.display = 'none';
+      }
+    }
+
+    function showError(msg) {
+      var box = wrap.querySelector('.booking-form__error');
+      if (box) {
+        box.textContent = msg;
+        box.style.display = 'block';
+      }
+    }
+
+    /* Submit to the HubSpot Forms Submissions API v3 (when a form GUID is set). */
+    function submitBooking(submitBtn) {
+      var portalId = wrap.getAttribute('data-portal-id');
+      var formGuid = wrap.getAttribute('data-form-guid');
+      var region = wrap.getAttribute('data-region') || 'na1';
+
+      /* Demo mode: no form configured → just show success. */
+      if (!formGuid) {
+        showSuccess();
+        return;
+      }
+
+      var name = val('bf_name');
+      var firstName = name.split(' ')[0] || '';
+      var lastName = name.split(' ').slice(1).join(' ') || '';
+
+      var detailLines = [
+        'Pet type: ' + val('bf_pet_type'),
+        "Pet's name: " + val('bf_pet_name'),
+        'Service: ' + val('bf_service'),
+        'Preferred doctor: ' + val('bf_doctor'),
+        'Preferred date: ' + val('bf_date'),
+        'Preferred time: ' + val('bf_time'),
+        'Notes: ' + val('bf_notes')
+      ];
+
+      var fields = [
+        { name: 'firstname', value: firstName },
+        { name: 'lastname', value: lastName },
+        { name: 'email', value: val('bf_email') },
+        { name: 'phone', value: val('bf_phone') },
+        { name: 'message', value: detailLines.join('\n') }
+      ].filter(function (f) { return f.value; });
+
+      var endpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/' +
+        portalId + '/' + formGuid;
+
+      var payload = {
+        fields: fields,
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title
+        }
+      };
+
+      if (submitBtn) { submitBtn.disabled = true; }
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (res.ok) {
+          showSuccess();
+        } else {
+          return res.json().then(function (data) {
+            var msg = (data && data.message) ? data.message : 'Submission failed. Please try again or call us.';
+            showError(msg);
+            if (submitBtn) { submitBtn.disabled = false; }
+          });
+        }
+      }).catch(function () {
+        showError('Network error. Please try again or call us.');
+        if (submitBtn) { submitBtn.disabled = false; }
+      });
+    }
+
+    /* Wire up Next / Prev / Submit buttons */
     wrap.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-form-next]');
       if (btn) {
@@ -87,6 +179,12 @@
       var prevBtn = e.target.closest('[data-form-prev]');
       if (prevBtn) {
         showStep(Math.max(current - 1, 0));
+        return;
+      }
+
+      var submitBtn = e.target.closest('[data-form-submit]');
+      if (submitBtn) {
+        submitBooking(submitBtn);
       }
     });
 

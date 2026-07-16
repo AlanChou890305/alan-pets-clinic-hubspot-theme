@@ -6,7 +6,10 @@
          aria-label="{{ module.form_title }}">
   <div class="container">
 
-    <div class="booking-form-wrap{% if module.background_style == 'teal' %} booking-form-wrap--teal{% endif %}">
+    <div class="booking-form-wrap{% if module.background_style == 'teal' %} booking-form-wrap--teal{% endif %}"
+         data-portal-id="{{ module.hubspot_portal_id }}"
+         data-form-guid="{{ module.hubspot_form_id }}"
+         data-region="{{ module.hubspot_region | default('na1') }}">
 
       <div class="booking-form__header">
         <h2 class="booking-form__title">{{ module.form_title }}</h2>
@@ -155,26 +158,10 @@
           {# Summary populated by form-steps.js #}
           <div class="booking-confirm__summary"></div>
 
-          {# If HubSpot Form ID is configured, embed a hidden form for actual submission #}
-          {% if module.hubspot_form_id %}
-            <div id="hs-form-target" style="display:none;"></div>
-            <script>
-              window.addEventListener('load', function() {
-                if (window.hbspt) {
-                  hbspt.forms.create({
-                    region: "na1",
-                    portalId: "{{ module.hubspot_portal_id }}",
-                    formId: "{{ module.hubspot_form_id }}",
-                    target: "#hs-form-target",
-                    onFormSubmit: function() {
-                      document.getElementById('booking-success').style.display = 'block';
-                      document.querySelector('.booking-form-wrap').style.display = 'none';
-                    }
-                  });
-                }
-              });
-            </script>
-          {% endif %}
+          {# Submission is handled by form-steps.js:
+             - If a HubSpot Form GUID is set on .booking-form-wrap, it POSTs the
+               collected values to the HubSpot Forms Submissions API v3.
+             - Otherwise it shows the success state as a client-side demo. #}
 
           <div id="booking-success"
                style="display:none; background:var(--color-primary-bg); border-radius:var(--radius-lg); padding:var(--space-6); text-align:center; border: 1px solid var(--color-primary-light);">
@@ -183,27 +170,14 @@
             <p style="color:var(--color-text-secondary); font-size:var(--font-size-sm);">{{ module.success_message }}</p>
           </div>
 
+          <div class="booking-form__error" role="alert"
+               style="display:none; background:#fef2f2; border:1px solid #fecaca; color:#b91c1c; border-radius:var(--radius-lg); padding:var(--space-4); margin-bottom:var(--space-4); font-size:var(--font-size-sm);"></div>
+
           <div class="booking-form__nav">
             <button type="button" class="btn btn--outline" data-form-prev>
               ← Edit Details
             </button>
-            <button type="button"
-                    class="btn btn--primary btn--lg"
-                    id="booking-submit-btn"
-                    onclick="
-                      {% if module.hubspot_form_id %}
-                        var hsForm = document.querySelector('#hs-form-target form');
-                        if (hsForm) { hsForm.submit(); }
-                        else {
-                          document.getElementById('booking-success').style.display = 'block';
-                          this.closest('.booking-form-wrap').style.display = 'none';
-                        }
-                      {% else %}
-                        document.getElementById('booking-success').style.display = 'block';
-                        this.closest('.booking-form__panel').style.display = 'none';
-                        this.closest('.booking-form-wrap').querySelector('.booking-form__nav').style.display = 'none';
-                      {% endif %}
-                    ">
+            <button type="button" class="btn btn--primary btn--lg" data-form-submit>
               {{ module.submit_label }}
             </button>
           </div>

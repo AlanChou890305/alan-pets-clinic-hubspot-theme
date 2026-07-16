@@ -50,25 +50,29 @@ In **Settings → Website → Pages → Languages** (or the page's language menu
 
 ## 4. Real booking form (lead capture)
 
-Today `booking-form.module` shows a client-side "Booking Received" message unless a
-real HubSpot Form is wired in. To capture actual leads/contacts:
+Today `booking-form.module` shows a client-side "Booking Received" demo message until a
+real HubSpot Form GUID is set. The module now submits the collected values to the
+**HubSpot Forms Submissions API v3** (`js/form-steps.js`), mapping the custom 3-step UI
+to standard contact properties — so real leads flow once you wire a form:
 
-1. **Marketing → Forms → Create form** with fields: first name, last name (or full
-   name), phone, email, pet type, service, preferred date, notes.
-2. Copy the form's **GUID** (Share → Embed, or the URL).
+1. **Marketing → Forms → Create form** (Regular/Embedded form) that includes these
+   default contact fields: **First name, Last name, Email, Phone number, Message**.
+   (Pet type / pet name / service / doctor / date / time / notes are combined into the
+   **Message** field, so no custom properties are required to get started.)
+2. Copy the form's **GUID** (Share → Embed, or from the form URL).
 3. Open a page using the booking form → edit the **Booking Form** module → paste the
    GUID into **HubSpot Form ID**. **HubSpot Portal ID** is already `245981171`.
-4. Confirm the portal **region** — the module currently uses `na1` in
-   `hbspt.forms.create`. If your portal is EU-hosted, change `region: "na1"` in
-   `modules/booking-form.module/module.html` to `eu1` and re-upload.
+4. Set the module's **HubSpot Data Center Region** field (`na1` default; use `eu1` for
+   EU-hosted portals) — no code edit needed.
 
-⚠️ **Known limitation:** the custom 3-step UI collects its own fields but the embedded
-HubSpot form is submitted separately, so the pet-parent's typed values are not yet
-mapped into the HubSpot form submission. Options to make lead data flow through:
-- Simplest: let the module render the HubSpot form directly (drop the custom step UI), or
-- Map the collected values into the embedded form fields / post to the HubSpot Forms
-  Submissions API before showing the success state.
-Pick one when you wire the real form; it needs the form's field internal names.
+On submit the module POSTs to
+`https://api.hsforms.com/submissions/v3/integration/submit/<portalId>/<formGuid>`;
+a 200 shows the success state, an error surfaces inline. With no GUID set it stays in
+client-side demo mode.
+
+Optional: if you'd rather store pet type / service / date in their own contact
+properties (instead of bundled in Message), create those custom properties + matching
+form fields, then extend the `fields` array in `js/form-steps.js`.
 
 ## Re-uploading after code changes
 
