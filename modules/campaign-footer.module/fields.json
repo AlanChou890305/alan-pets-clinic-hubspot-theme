@@ -1,0 +1,37 @@
+[
+  {
+    "id": "clinic_name",
+    "name": "clinic_name",
+    "label": "Clinic Name",
+    "type": "text",
+    "default": "PawClinic"
+  },
+  {
+    "id": "copyright_text",
+    "name": "copyright_text",
+    "label": "Copyright Text",
+    "type": "text",
+    "default": "© 2026 PawClinic Veterinary Services. All rights reserved."
+  },
+  {
+    "id": "show_privacy_links",
+    "name": "show_privacy_links",
+    "label": "Show Privacy / Terms Links",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "privacy_url",
+    "name": "privacy_url",
+    "label": "Privacy Policy URL",
+    "type": "link",
+    "default": { "url": { "href": "/privacy", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  },
+  {
+    "id": "terms_url",
+    "name": "terms_url",
+    "label": "Terms URL",
+    "type": "link",
+    "default": { "url": { "href": "/terms", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  }
+]

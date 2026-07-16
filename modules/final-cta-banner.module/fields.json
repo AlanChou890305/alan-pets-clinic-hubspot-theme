@@ -1,0 +1,51 @@
+[
+  {
+    "id": "headline",
+    "name": "headline",
+    "label": "Headline",
+    "type": "text",
+    "default": "Don't Wait Until It's an Emergency"
+  },
+  {
+    "id": "subtext",
+    "name": "subtext",
+    "label": "Subtext",
+    "type": "text",
+    "default": "Preventive care saves lives — and costs less. Book your pet's visit today."
+  },
+  {
+    "id": "cta_label",
+    "name": "cta_label",
+    "label": "CTA Button Text",
+    "type": "text",
+    "default": "Book Now — It's Free to Start"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "CTA Button URL",
+    "type": "link",
+    "default": { "url": { "href": "#booking", "type": "EXTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  },
+  {
+    "id": "fine_print",
+    "name": "fine_print",
+    "label": "Fine Print",
+    "type": "text",
+    "default": "No credit card required · Confirmation within 1 hour"
+  },
+  {
+    "id": "background_color",
+    "name": "background_color",
+    "label": "Background Color",
+    "type": "color",
+    "default": { "color": "#0f766e", "opacity": 100 }
+  },
+  {
+    "id": "show_paw_decoration",
+    "name": "show_paw_decoration",
+    "label": "Show Paw Decoration",
+    "type": "boolean",
+    "default": true
+  }
+]

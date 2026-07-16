@@ -1,0 +1,12 @@
+<footer class="campaign-footer">
+  <div class="container campaign-footer__inner">
+    <span class="campaign-footer__brand">🐾 {{ module.clinic_name }}</span>
+    <p class="campaign-footer__copy">{{ module.copyright_text }}</p>
+    {% if module.show_privacy_links %}
+      <nav class="campaign-footer__links" aria-label="Legal">
+        <a href="{{ module.privacy_url.url.href }}">Privacy</a>
+        <a href="{{ module.terms_url.url.href }}">Terms</a>
+      </nav>
+    {% endif %}
+  </div>
+</footer>

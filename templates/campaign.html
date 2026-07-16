@@ -1,0 +1,76 @@
+<!--
+  templateType: page
+  label: Campaign Landing Page
+  isAvailableForNewContent: true
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ standard_header_includes }}
+
+  <title>{{ content.html_title }}</title>
+  {% if content.meta_description %}
+    <meta name="description" content="{{ content.meta_description }}">
+  {% endif %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {{ require_css(get_asset_url("css/main.css")) }}
+</head>
+
+<body class="campaign-body">
+
+  {% module "campaign_header"
+     path="alan-pets-clinic-hubspot-theme/modules/campaign-header.module"
+     label="Campaign Header" %}
+
+  <main>
+    {% module "campaign_hero"
+       path="alan-pets-clinic-hubspot-theme/modules/campaign-hero.module"
+       label="Campaign Hero" %}
+
+    {% module "campaign_stats"
+       path="alan-pets-clinic-hubspot-theme/modules/stats-bar.module"
+       label="Stats Bar" %}
+
+    {% module "campaign_problem_solution"
+       path="alan-pets-clinic-hubspot-theme/modules/problem-solution.module"
+       label="Problem / Solution" %}
+
+    {% module "campaign_how_it_works"
+       path="alan-pets-clinic-hubspot-theme/modules/how-it-works.module"
+       label="How It Works" %}
+
+    {% module "campaign_testimonials"
+       path="alan-pets-clinic-hubspot-theme/modules/patient-testimonials.module"
+       label="Patient Testimonials" %}
+
+    {% module "campaign_faq"
+       path="alan-pets-clinic-hubspot-theme/modules/faq-accordion.module"
+       label="FAQ Accordion" %}
+
+    <div id="booking">
+      {% module "campaign_booking"
+         path="alan-pets-clinic-hubspot-theme/modules/booking-form.module"
+         label="Booking Form" %}
+    </div>
+
+    {% module "campaign_final_cta"
+       path="alan-pets-clinic-hubspot-theme/modules/final-cta-banner.module"
+       label="Final CTA Banner" %}
+  </main>
+
+  {% module "campaign_footer"
+     path="alan-pets-clinic-hubspot-theme/modules/campaign-footer.module"
+     label="Campaign Footer" %}
+
+  {{ require_js(get_asset_url("js/main.js")) }}
+  {{ standard_footer_includes }}
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "background_image",
+    "name": "background_image",
+    "label": "Background Image",
+    "type": "image",
+    "default": { "src": "", "alt": "" }
+  },
+  {
+    "id": "overlay_opacity",
+    "name": "overlay_opacity",
+    "label": "Overlay Opacity (%)",
+    "type": "number",
+    "default": 70,
+    "min": 0,
+    "max": 100
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "New Patient Special — First Visit Wellness Check Included"
+  },
+  {
+    "id": "headline",
+    "name": "headline",
+    "label": "Headline",
+    "type": "richtext",
+    "default": "<h1>Your Pet Deserves <em>Expert Care</em> — Book Today</h1>"
+  },
+  {
+    "id": "subtext",
+    "name": "subtext",
+    "label": "Subtext",
+    "type": "text",
+    "default": "Trusted by 500+ pet families. Compassionate, board-certified care since 2015."
+  },
+  {
+    "id": "trust_items",
+    "name": "trust_items",
+    "label": "Trust Badges",
+    "type": "group",
+    "occurrence": { "min": 0, "max": 6, "default": 3 },
+    "default": [
+      { "trust_label": "No Hidden Fees" },
+      { "trust_label": "Same-Day Appointments" },
+      { "trust_label": "Board-Certified Vets" }
+    ],
+    "children": [
+      { "id": "trust_label", "name": "trust_label", "label": "Badge Label", "type": "text", "default": "Trust point" }
+    ]
+  },
+  {
+    "id": "primary_cta_text",
+    "name": "primary_cta_text",
+    "label": "Primary CTA Text",
+    "type": "text",
+    "default": "Book My Appointment"
+  },
+  {
+    "id": "primary_cta_url",
+    "name": "primary_cta_url",
+    "label": "Primary CTA URL",
+    "type": "link",
+    "default": { "url": { "href": "#booking", "type": "EXTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  },
+  {
+    "id": "secondary_cta_text",
+    "name": "secondary_cta_text",
+    "label": "Secondary CTA Text",
+    "type": "text",
+    "default": "Call Us Now"
+  },
+  {
+    "id": "secondary_cta_phone",
+    "name": "secondary_cta_phone",
+    "label": "Secondary CTA Phone",
+    "type": "text",
+    "default": "+15551234567"
+  }
+]

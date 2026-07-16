@@ -1,0 +1,37 @@
+[
+  {
+    "id": "logo_text",
+    "name": "logo_text",
+    "label": "Logo Text",
+    "type": "text",
+    "default": "PawClinic"
+  },
+  {
+    "id": "phone_number",
+    "name": "phone_number",
+    "label": "Phone Number",
+    "type": "text",
+    "default": "(555) 123-4567"
+  },
+  {
+    "id": "cta_label",
+    "name": "cta_label",
+    "label": "CTA Label",
+    "type": "text",
+    "default": "Book Free Consult"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "CTA URL",
+    "type": "link",
+    "default": { "url": { "href": "#booking", "type": "EXTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  },
+  {
+    "id": "sticky",
+    "name": "sticky",
+    "label": "Sticky on Scroll",
+    "type": "boolean",
+    "default": true
+  }
+]

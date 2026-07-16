@@ -1,0 +1,13 @@
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid">
+      {% for stat in module.stats %}
+        <div class="stats-bar__item">
+          <div class="stats-bar__icon" aria-hidden="true">{{ stat.icon }}</div>
+          <div class="stats-bar__value">{{ stat.value }}</div>
+          <div class="stats-bar__label">{{ stat.stat_label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

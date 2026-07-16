@@ -1,0 +1,34 @@
+<section class="section problem-solution">
+  <div class="container">
+    <div class="section-header">
+      {% if module.section_label %}
+        <span class="section-header__eyebrow">{{ module.section_label }}</span>
+      {% endif %}
+      <h2 class="section-header__title">{{ module.section_title }}</h2>
+    </div>
+
+    <div class="problem-solution__grid">
+      <div class="problem-solution__col problem-solution__col--problem">
+        <h3 class="problem-solution__col-title">{{ module.problem_column_title }}</h3>
+        <ul class="problem-solution__list">
+          {% for item in module.problems %}
+            <li class="problem-solution__item problem-solution__item--problem">
+              <span aria-hidden="true">✕</span> {{ item.problem_text }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="problem-solution__col problem-solution__col--solution">
+        <h3 class="problem-solution__col-title">{{ module.solution_column_title }}</h3>
+        <ul class="problem-solution__list">
+          {% for item in module.solutions %}
+            <li class="problem-solution__item problem-solution__item--solution">
+              <span aria-hidden="true">✓</span> {{ item.solution_text }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

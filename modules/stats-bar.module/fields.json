@@ -1,0 +1,20 @@
+[
+  {
+    "id": "stats",
+    "name": "stats",
+    "label": "Stat Items",
+    "type": "group",
+    "occurrence": { "min": 2, "max": 6, "default": 4 },
+    "default": [
+      { "icon": "👨‍👩‍👧", "value": "500+", "label": "Happy Pet Families" },
+      { "icon": "🏆", "value": "10+", "label": "Years of Service" },
+      { "icon": "🩺", "value": "6", "label": "Specialist Vets" },
+      { "icon": "⭐", "value": "4.9", "label": "Average Rating" }
+    ],
+    "children": [
+      { "id": "icon", "name": "icon", "label": "Icon (emoji)", "type": "text", "default": "⭐" },
+      { "id": "value", "name": "value", "label": "Value", "type": "text", "default": "100+" },
+      { "id": "stat_label", "name": "stat_label", "label": "Label", "type": "text", "default": "Stat label" }
+    ]
+  }
+]

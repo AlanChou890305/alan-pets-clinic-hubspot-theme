@@ -1,0 +1,34 @@
+[
+  {
+    "id": "section_label",
+    "name": "section_label",
+    "label": "Section Label",
+    "type": "text",
+    "default": "Easy as 1-2-3"
+  },
+  {
+    "id": "section_title",
+    "name": "section_title",
+    "label": "Section Title",
+    "type": "text",
+    "default": "How It Works"
+  },
+  {
+    "id": "steps",
+    "name": "steps",
+    "label": "Steps",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3 },
+    "default": [
+      { "number": "01", "emoji": "📋", "title": "Fill Out the Form", "description": "Tell us about your pet — it takes under 2 minutes." },
+      { "number": "02", "emoji": "📞", "title": "We Confirm", "description": "Our team calls within 1 hour to confirm your slot." },
+      { "number": "03", "emoji": "🐾", "title": "Visit Us", "description": "Bring your pet in for compassionate, expert care." }
+    ],
+    "children": [
+      { "id": "number", "name": "number", "label": "Step Number", "type": "text", "default": "01" },
+      { "id": "emoji", "name": "emoji", "label": "Step Icon (emoji)", "type": "text", "default": "📋" },
+      { "id": "title", "name": "title", "label": "Step Title", "type": "text", "default": "Step title" },
+      { "id": "description", "name": "description", "label": "Step Description", "type": "text", "default": "Step description" }
+    ]
+  }
+]

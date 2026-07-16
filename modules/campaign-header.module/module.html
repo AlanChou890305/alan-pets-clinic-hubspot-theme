@@ -1,0 +1,14 @@
+<header class="campaign-header{% if module.sticky %} campaign-header--sticky{% endif %}">
+  <div class="container campaign-header__inner">
+    <span class="campaign-header__logo">🐾 {{ module.logo_text }}</span>
+    <div class="campaign-header__actions">
+      {% if module.phone_number %}
+        <a href="tel:{{ module.phone_number|replace(' ', '')|replace('(', '')|replace(')', '')|replace('-', '') }}"
+           class="campaign-header__phone">📞 {{ module.phone_number }}</a>
+      {% endif %}
+      {% if module.cta_label %}
+        <a href="{{ module.cta_url.url.href }}" class="btn btn--primary">{{ module.cta_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

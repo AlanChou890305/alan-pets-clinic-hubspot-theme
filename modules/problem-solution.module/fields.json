@@ -1,0 +1,62 @@
+[
+  {
+    "id": "section_label",
+    "name": "section_label",
+    "label": "Section Label",
+    "type": "text",
+    "default": "Why Choose Us"
+  },
+  {
+    "id": "section_title",
+    "name": "section_title",
+    "label": "Section Title",
+    "type": "text",
+    "default": "We Do Veterinary Care Differently"
+  },
+  {
+    "id": "problem_column_title",
+    "name": "problem_column_title",
+    "label": "Problem Column Title",
+    "type": "text",
+    "default": "😓 Sound Familiar?"
+  },
+  {
+    "id": "problems",
+    "name": "problems",
+    "label": "Problem Items",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 8, "default": 4 },
+    "default": [
+      { "problem_text": "Long wait times for appointments" },
+      { "problem_text": "Rushed visits and unclear explanations" },
+      { "problem_text": "Surprise fees on the final bill" },
+      { "problem_text": "Stressful experience for anxious pets" }
+    ],
+    "children": [
+      { "id": "problem_text", "name": "problem_text", "label": "Problem Text", "type": "text", "default": "Problem" }
+    ]
+  },
+  {
+    "id": "solution_column_title",
+    "name": "solution_column_title",
+    "label": "Solution Column Title",
+    "type": "text",
+    "default": "🐾 The PawClinic Way"
+  },
+  {
+    "id": "solutions",
+    "name": "solutions",
+    "label": "Solution Items",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 8, "default": 4 },
+    "default": [
+      { "solution_text": "Same-day bookings available" },
+      { "solution_text": "Unhurried visits with clear guidance" },
+      { "solution_text": "Transparent, upfront pricing" },
+      { "solution_text": "Fear-free, calming clinic environment" }
+    ],
+    "children": [
+      { "id": "solution_text", "name": "solution_text", "label": "Solution Text", "type": "text", "default": "Solution" }
+    ]
+  }
+]

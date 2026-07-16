@@ -1,0 +1,40 @@
+[
+  {
+    "id": "section_label",
+    "name": "section_label",
+    "label": "Section Label",
+    "type": "text",
+    "default": "Common Questions"
+  },
+  {
+    "id": "section_title",
+    "name": "section_title",
+    "label": "Section Title",
+    "type": "text",
+    "default": "Frequently Asked Questions"
+  },
+  {
+    "id": "faqs",
+    "name": "faqs",
+    "label": "FAQ Items",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 20, "default": 4 },
+    "default": [
+      { "question": "Do I need to make an appointment?", "answer": "<p>Appointments are recommended so we can give your pet our full attention, but we also welcome same-day and walk-in urgent cases.</p>" },
+      { "question": "What areas of care do you offer?", "answer": "<p>From routine wellness exams and vaccinations to dental, surgery, diagnostics, and emergency care — all under one roof.</p>" },
+      { "question": "How much will my visit cost?", "answer": "<p>We provide transparent, upfront pricing before any treatment. No surprise fees, ever.</p>" },
+      { "question": "Is the clinic anxious-pet friendly?", "answer": "<p>Yes. Our fear-free approach and calm environment are designed to keep nervous pets comfortable.</p>" }
+    ],
+    "children": [
+      { "id": "question", "name": "question", "label": "Question", "type": "text", "default": "Your question here?" },
+      { "id": "answer", "name": "answer", "label": "Answer", "type": "richtext", "default": "<p>Your answer here.</p>" }
+    ]
+  },
+  {
+    "id": "allow_multiple_open",
+    "name": "allow_multiple_open",
+    "label": "Allow Multiple Open at Once",
+    "type": "boolean",
+    "default": false
+  }
+]

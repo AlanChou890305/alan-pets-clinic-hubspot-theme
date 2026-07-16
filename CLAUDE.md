@@ -53,6 +53,12 @@ upload — so the build toolchain lives in git but never ships to HubSpot. Alway
   this pattern for new list-style modules rather than inventing another.
 - `link`-type fields use the nested `{ url: { href, type } }` format (a deliberate
   fix — don't regress to flat `{ href }`).
+- **Reserved field names**: HubSpot rejects a module field (or group child) named
+  `label`, `name`, `type`, `css`, `styles`, `body`, `id`, or `tag`
+  (`MODULE_VALIDATION_RESTRICTED_FIELD_NAME` → the upload fails with a vague
+  "internal error"). Prefix them (`stat_label`, `trust_label`, `problem_text`, …).
+  Field `name`s must also be unique across the whole module, including inside
+  different `group` children.
 - Global `header.module` and `footer.module` live under `modules/global/` and are
   `is_available_for_new_content: false` (locked). They are placed as static
   `{% module %}` tags **outside** the `dnd_area` in `base.html`, so edit those two
@@ -137,7 +143,11 @@ Active work plan (see the approved plan file for full detail):
 3. **Phase 3** — Doctor Profile as a true HubDB **dynamic page** (one URL per doctor,
    `doctor-profile.module` + `templates/doctor-profile.html`).
 4. **Phase 4** — `patient-testimonials.module` (group-repeater fields, **not** HubDB).
-5. **Phase 5** — Campaign marketing landing page (own template + `campaign-*` modules).
+5. **Phase 5** ✅ — Campaign marketing landing page: `templates/campaign.html` with its
+   own `campaign-header` / `campaign-footer` and a fixed flow of `campaign-hero`,
+   `stats-bar`, `problem-solution`, `how-it-works`, `patient-testimonials` (reused),
+   `faq-accordion` (+ `js/faq-accordion.js`), `booking-form` (reused, anchored at
+   `#booking`), and `final-cta-banner`. Campaign styles live in `src/css/campaign.css`.
 6. **Phase 6** — wire a real HubSpot Form into `booking-form.module` (it currently
    only shows a client-side success message; `hubspot_form_id` is unset so no lead
    is captured).

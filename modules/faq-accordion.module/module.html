@@ -1,0 +1,25 @@
+<section class="section faq" aria-label="{{ module.section_title }}">
+  <div class="container container--narrow">
+    <div class="section-header">
+      {% if module.section_label %}
+        <span class="section-header__eyebrow">{{ module.section_label }}</span>
+      {% endif %}
+      <h2 class="section-header__title">{{ module.section_title }}</h2>
+    </div>
+
+    <div class="faq__list" data-allow-multiple="{{ 'true' if module.allow_multiple_open else 'false' }}">
+      {% for item in module.faqs %}
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false" type="button">
+            <span>{{ item.question }}</span>
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__answer" hidden>
+            <div class="faq-item__answer-inner">{{ item.answer }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{{ require_js(get_asset_url("js/faq-accordion.js")) }}

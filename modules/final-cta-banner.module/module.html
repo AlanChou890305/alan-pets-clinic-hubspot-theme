@@ -1,0 +1,19 @@
+{% set bg = module.background_color.color|default('#0f766e') %}
+
+<section class="final-cta{% if module.show_paw_decoration %} final-cta--paws{% endif %}"
+         style="background-color: {{ bg }};">
+  <div class="container final-cta__inner">
+    <h2 class="final-cta__headline">{{ module.headline }}</h2>
+    {% if module.subtext %}
+      <p class="final-cta__subtext">{{ module.subtext }}</p>
+    {% endif %}
+    {% if module.cta_label %}
+      <a href="{{ module.cta_url.url.href }}" class="btn btn--lg final-cta__btn">
+        {{ module.cta_label }} →
+      </a>
+    {% endif %}
+    {% if module.fine_print %}
+      <p class="final-cta__fine">{{ module.fine_print }}</p>
+    {% endif %}
+  </div>
+</section>

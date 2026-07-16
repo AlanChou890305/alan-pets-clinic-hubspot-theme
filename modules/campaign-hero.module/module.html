@@ -1,0 +1,41 @@
+{% set overlay = (module.overlay_opacity|default(70)) / 100 %}
+
+<section class="campaign-hero"
+  {% if module.background_image and module.background_image.src %}
+    style="background-image: url('{{ module.background_image.src }}');"
+  {% endif %}>
+  <div class="campaign-hero__overlay" style="opacity: {{ overlay }};"></div>
+
+  <div class="container campaign-hero__inner">
+    {% if module.badge_text %}
+      <span class="campaign-hero__badge">✨ {{ module.badge_text }}</span>
+    {% endif %}
+
+    <div class="campaign-hero__headline">{{ module.headline }}</div>
+
+    {% if module.subtext %}
+      <p class="campaign-hero__subtext">{{ module.subtext }}</p>
+    {% endif %}
+
+    <div class="campaign-hero__actions">
+      {% if module.primary_cta_text %}
+        <a href="{{ module.primary_cta_url.url.href }}" class="btn btn--primary btn--lg">
+          {{ module.primary_cta_text }}
+        </a>
+      {% endif %}
+      {% if module.secondary_cta_text and module.secondary_cta_phone %}
+        <a href="tel:{{ module.secondary_cta_phone }}" class="btn btn--outline btn--lg campaign-hero__call">
+          📞 {{ module.secondary_cta_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if module.trust_items %}
+      <ul class="campaign-hero__trust">
+        {% for item in module.trust_items %}
+          <li class="campaign-hero__trust-item">✓ {{ item.trust_label }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>
