@@ -1,0 +1,30 @@
+[
+  {
+    "id": "back_label",
+    "name": "back_label",
+    "label": "Back Link Label",
+    "type": "text",
+    "default": "Back to all doctors"
+  },
+  {
+    "id": "back_url",
+    "name": "back_url",
+    "label": "Back Link URL",
+    "type": "link",
+    "default": { "url": { "href": "/doctors", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  },
+  {
+    "id": "book_label",
+    "name": "book_label",
+    "label": "Booking Button Label",
+    "type": "text",
+    "default": "Book an appointment"
+  },
+  {
+    "id": "book_url",
+    "name": "book_url",
+    "label": "Booking Button URL",
+    "type": "link",
+    "default": { "url": { "href": "/booking", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  }
+]

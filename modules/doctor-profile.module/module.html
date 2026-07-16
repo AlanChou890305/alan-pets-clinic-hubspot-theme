@@ -1,0 +1,72 @@
+{# Doctor Profile — detail view for a HubDB dynamic page.
+   Reads the current row from dynamic_page_hubdb_row (populated by HubSpot
+   when a request path matches a clinic_doctors row's path). #}
+
+{% set row = dynamic_page_hubdb_row %}
+{% set is_zh = content.language and 'zh' in content.language %}
+
+{% if row %}
+  {% set doc_title = row.title_zh if is_zh and row.title_zh else row.title %}
+  {% set doc_specialty = row.specialty_zh if is_zh and row.specialty_zh else row.specialty %}
+  {% set doc_bio = row.bio_zh if is_zh and row.bio_zh else row.bio %}
+
+  <section class="section doctor-profile">
+    <div class="container container--narrow">
+
+      <a href="{{ module.back_url.url.href }}" class="doctor-profile__back">
+        ← {{ module.back_label }}
+      </a>
+
+      <div class="doctor-profile__header">
+        <div class="doctor-profile__photo-wrap">
+          {% if row.photo and row.photo.url %}
+            <img src="{{ row.photo.url }}"
+                 alt="{{ '照片：' ~ row.name if is_zh else 'Photo of ' ~ row.name }}"
+                 class="doctor-profile__photo"
+                 loading="eager">
+          {% else %}
+            <div class="doctor-profile__photo-placeholder">👩‍⚕️</div>
+          {% endif %}
+        </div>
+
+        <div class="doctor-profile__intro">
+          <h1 class="doctor-profile__name">{{ row.name }}</h1>
+          {% if doc_title %}
+            <p class="doctor-profile__title">{{ doc_title }}</p>
+          {% endif %}
+          {% if doc_specialty %}
+            <p class="doctor-profile__specialty">
+              <span class="badge badge--primary">{{ doc_specialty }}</span>
+            </p>
+          {% endif %}
+          {% if row.is_featured %}
+            <span class="badge badge--accent">{{ "精選醫師" if is_zh else "Featured" }}</span>
+          {% endif %}
+
+          <a href="{{ module.book_url.url.href }}" class="btn btn--primary btn--lg doctor-profile__book">
+            {{ module.book_label }}
+          </a>
+        </div>
+      </div>
+
+      {% if doc_bio %}
+        <div class="doctor-profile__bio prose">
+          <h2 class="doctor-profile__bio-heading">{{ "關於" ~ row.name if is_zh else "About " ~ row.name }}</h2>
+          {{ doc_bio }}
+        </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+{% else %}
+  {# No matching row — safety fallback (should not normally render, listing lives on the base page). #}
+  <section class="section">
+    <div class="container" style="text-align:center; padding: 4rem 0;">
+      <p style="color: var(--color-text-muted);">
+        {{ "找不到這位醫師。" if is_zh else "Doctor not found." }}
+      </p>
+      <a href="{{ module.back_url.url.href }}" class="btn btn--outline">← {{ module.back_label }}</a>
+    </div>
+  </section>
+{% endif %}

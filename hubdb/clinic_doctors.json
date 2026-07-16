@@ -1,7 +1,7 @@
 {
   "name": "clinic_doctors",
   "label": "Clinic Doctors",
-  "useForPages": false,
+  "useForPages": true,
   "allowChildTables": false,
   "enableChildTablePages": false,
   "columns": [
@@ -78,7 +78,9 @@
         "title_zh": "獸醫博士，院長",
         "specialty_zh": "小動物醫學與內科",
         "bio_zh": "<p>Carter 醫師在小動物醫學領域擁有超過 15 年經驗，帶領我們的臨床團隊，熱衷於預防醫學，並致力與患者及其家庭建立長期關係。</p>"
-      }
+      },
+      "path": "emily-carter",
+      "name": "Dr. Emily Carter"
     },
     {
       "values": {
@@ -91,7 +93,9 @@
         "title_zh": "獸醫博士，DABVP（貓科）",
         "specialty_zh": "貓科與特殊寵物專科",
         "bio_zh": "<p>Lee 醫師是我們的貓科與特殊寵物專家，擁有美國獸醫執業委員會（ABVP）認證。她特別專注於貓咪友善的保定技術與特殊物種照護。</p>"
-      }
+      },
+      "path": "jessica-lee",
+      "name": "Dr. Jessica Lee"
     },
     {
       "values": {
@@ -104,7 +108,9 @@
         "title_zh": "獸醫博士，DACVS",
         "specialty_zh": "外科與骨科",
         "bio_zh": "<p>Reed 醫師是我們的首席外科醫師，擁有獸醫外科委員會認證，專精於骨科手術、軟組織手術與微創技術。</p>"
-      }
+      },
+      "path": "marcus-reed",
+      "name": "Dr. Marcus Reed"
     },
     {
       "values": {
@@ -117,7 +123,9 @@
         "title_zh": "獸醫博士，理學碩士",
         "specialty_zh": "皮膚科與營養科",
         "bio_zh": "<p>Nguyen 醫師完成獸醫皮膚科住院醫師訓練，並擁有臨床營養學碩士學位，擅長處理複雜過敏病例、皮膚疾病與營養諮詢。</p>"
-      }
+      },
+      "path": "sophia-nguyen",
+      "name": "Dr. Sophia Nguyen"
     },
     {
       "values": {
@@ -130,7 +138,9 @@
         "title_zh": "獸醫博士",
         "specialty_zh": "預防醫學與疫苗接種",
         "bio_zh": "<p>Thornton 醫師於 2020 年加入 PawClinic，專注於預防醫學與社區健康。他以溫柔對待緊張患者及細心的健康諮詢著稱。</p>"
-      }
+      },
+      "path": "james-thornton",
+      "name": "Dr. James Thornton"
     },
     {
       "values": {
@@ -143,7 +153,9 @@
         "title_zh": "獸醫博士，DACVIM（腫瘤科）",
         "specialty_zh": "腫瘤科與診斷",
         "bio_zh": "<p>Sharma 醫師是我們的腫瘤科專家，以同理心與專業協助寵物及其家庭面對癌症診斷。她與我們的影像診斷團隊密切合作。</p>"
-      }
+      },
+      "path": "priya-sharma",
+      "name": "Dr. Priya Sharma"
     }
   ]
 }

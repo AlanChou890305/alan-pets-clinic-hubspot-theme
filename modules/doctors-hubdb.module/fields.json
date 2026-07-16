@@ -63,5 +63,21 @@
     "label": "View All Button URL",
     "type": "link",
     "default": { "url": { "href": "/doctors", "type": "INTERNAL" }, "open_in_new_tab": false, "no_follow": false }
+  },
+  {
+    "id": "link_to_profile",
+    "name": "link_to_profile",
+    "label": "Link Cards to Doctor Profile Pages",
+    "type": "boolean",
+    "default": true,
+    "help_text": "When enabled, each card links to that doctor's dynamic profile page (base URL + HubDB path)."
+  },
+  {
+    "id": "profile_base_url",
+    "name": "profile_base_url",
+    "label": "Profile Page Base URL",
+    "type": "text",
+    "default": "/doctors",
+    "help_text": "Slug of the dynamic page built on the Doctor Profile template (e.g. /doctors). Each card links to <base>/<doctor-path>."
   }
 ]

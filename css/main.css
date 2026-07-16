@@ -1278,6 +1278,87 @@ select.form-control {
   margin-bottom: var(--space-5);
   text-align: left;
 }
+.doctor-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.doctor-card__more {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+.container--narrow {
+  max-width: 56rem;
+}
+.doctor-profile__back {
+  display: inline-block;
+  margin-bottom: var(--space-6);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+.doctor-profile__back:hover {
+  color: var(--color-primary);
+}
+.doctor-profile__header {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+}
+.doctor-profile__photo-wrap {
+  flex-shrink: 0;
+}
+.doctor-profile__photo, .doctor-profile__photo-placeholder {
+  width: 12rem;
+  height: 12rem;
+  border-radius: var(--radius-xl);
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+.doctor-profile__photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-light);
+  font-size: 4rem;
+}
+.doctor-profile__intro {
+  flex: 1 1 18rem;
+}
+.doctor-profile__name {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.doctor-profile__title {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-3);
+}
+.doctor-profile__specialty {
+  margin-bottom: var(--space-4);
+}
+.doctor-profile__book {
+  margin-top: var(--space-5);
+}
+.doctor-profile__bio {
+  color: var(--color-text);
+  line-height: var(--line-height-loose);
+}
+.doctor-profile__bio-heading {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-4);
+}
 .services-filter {
   display: flex;
   flex-wrap: wrap;

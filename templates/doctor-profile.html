@@ -1,0 +1,71 @@
+<!--
+  templateType: page
+  label: Doctor Profile (Dynamic)
+  isAvailableForNewContent: true
+  dynamicPageHubDBTable: 3092647629
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ standard_header_includes }}
+
+  {# On a detail page, prefer the doctor's name for the title #}
+  {% if dynamic_page_hubdb_row %}
+    <title>{{ dynamic_page_hubdb_row.name }} | {{ site_settings.company_name }}</title>
+  {% else %}
+    <title>{{ content.html_title }}</title>
+  {% endif %}
+  {% if content.meta_description %}
+    <meta name="description" content="{{ content.meta_description }}">
+  {% endif %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {{ require_css(get_asset_url("css/main.css")) }}
+</head>
+
+<body>
+
+  {% module "site_header"
+     path="alan-pets-clinic-hubspot-theme/modules/global/header.module"
+     label="Global Header" %}
+
+  <main>
+    {% if dynamic_page_hubdb_row %}
+      {# ── Detail view: a specific doctor ── #}
+      {% module "doctor_profile"
+         path="alan-pets-clinic-hubspot-theme/modules/doctor-profile.module"
+         label="Doctor Profile" %}
+    {% else %}
+      {# ── Base view: listing of all doctors, each linking to its detail page ── #}
+      {% module "page_hero"
+         path="alan-pets-clinic-hubspot-theme/modules/page-hero.module"
+         label="Page Hero"
+         page_title="Meet Our Doctors"
+         tagline="Board-certified veterinarians dedicated to your pet's health." %}
+
+      {% module "doctors_listing"
+         path="alan-pets-clinic-hubspot-theme/modules/doctors-hubdb.module"
+         label="Doctors Listing"
+         featured_only=false
+         show_bio=true
+         show_pagination=true
+         link_to_profile=true
+         profile_base_url=request.path %}
+    {% endif %}
+  </main>
+
+  {% module "site_footer"
+     path="alan-pets-clinic-hubspot-theme/modules/global/footer.module"
+     label="Global Footer" %}
+
+  {{ require_js(get_asset_url("js/main.js")) }}
+  {{ standard_footer_includes }}
+
+</body>
+</html>

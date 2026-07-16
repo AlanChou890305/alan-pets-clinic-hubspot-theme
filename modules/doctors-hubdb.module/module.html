@@ -28,7 +28,10 @@
           {% set doc_title = row.title_zh if is_zh and row.title_zh else row.title %}
           {% set doc_specialty = row.specialty_zh if is_zh and row.specialty_zh else row.specialty %}
           {% set doc_bio = row.bio_zh if is_zh and row.bio_zh else row.bio %}
+          {% set profile_href = module.profile_base_url|default('/doctors')|regex_replace('/$', '') ~ '/' ~ row.hs_path %}
+          {% set link_profile = module.link_to_profile and row.hs_path %}
           <div class="doctor-card-wrap">
+            {% if link_profile %}<a href="{{ profile_href }}" class="doctor-card__link">{% endif %}
             <article class="doctor-card">
 
               <div class="doctor-card__photo-wrap">
@@ -55,9 +58,15 @@
                     {{ doc_bio | striptags | truncate(200) }}
                   </div>
                 {% endif %}
+                {% if link_profile %}
+                  <span class="doctor-card__more">
+                    {{ "查看簡介 →" if is_zh else "View profile →" }}
+                  </span>
+                {% endif %}
               </div>
 
             </article>
+            {% if link_profile %}</a>{% endif %}
           </div>
         {% else %}
           <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 3rem 0;">

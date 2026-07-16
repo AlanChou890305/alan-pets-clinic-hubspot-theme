@@ -65,7 +65,12 @@ Two tables in portal `245981171`; source-of-truth JSON lives in `hubdb/`:
 | Table            | ID           | Source file                  |
 |------------------|--------------|------------------------------|
 | `clinic_services`| `3091965655` | `hubdb/clinic_services.json` |
-| `clinic_doctors` | `3092305609` | `hubdb/clinic_doctors.json`  |
+| `clinic_doctors` | `3092647629` | `hubdb/clinic_doctors.json`  |
+
+> ⚠️ `clinic_doctors` id `3092647629` is **pinned** in `templates/doctor-profile.html`
+> (`dynamicPageHubDBTable`). Do NOT delete/recreate it — that changes the ID and breaks
+> the dynamic pages. Edit rows in the HubSpot UI or via a future `hs hubdb` update path
+> instead. `useForPages: true`; each row has a `path` (e.g. `emily-carter`) + `name`.
 
 > HubDB BOOLEAN cell values in the seed JSON must be `1`/`0` integers, **not** JSON
 > `true`/`false` — `hs hubdb create` silently coerces `true`/`false` to `0`, which had
@@ -91,6 +96,16 @@ A single flexible `templates/base.html`: locked static header/footer outside one
 is composed by dragging modules into that one area. New **page types** that need
 their own layout (Doctor Profile dynamic page, Campaign landing page) are the
 exception — they get their own dedicated templates.
+
+### Doctor Profile dynamic pages (`templates/doctor-profile.html`)
+- Backed by `clinic_doctors` (`useForPages: true`). One page instance serves both a
+  **listing** (base URL, no matched row → `page-hero` + `doctors-hubdb` module) and a
+  **detail** view (`dynamic_page_hubdb_row` set → `doctor-profile.module`).
+- `doctors-hubdb.module` links each card to `<profile_base_url>/<row.hs_path>` when
+  `link_to_profile` is on (default). On the dynamic page the base is `request.path`.
+- **User action (HubSpot UI):** create ONE page from the "Doctor Profile (Dynamic)"
+  template (e.g. slug `/doctors`), which auto-generates `/doctors/<path>` for every row.
+  Set the homepage doctors teaser's `profile_base_url` to match that slug.
 
 ## Bilingual (EN / 繁體中文)
 
