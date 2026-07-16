@@ -1,0 +1,57 @@
+{% set is_zh = content.language and 'zh' in content.language %}
+
+<section class="section section--sm" style="background: var(--color-bg-soft);"
+         aria-label="{{ module.section_heading }}">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-header__title">{{ module.section_heading }}</h2>
+      {% if module.section_subheading %}
+        <p class="section-header__subtitle">{{ module.section_subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="testimonials__grid">
+      {% for review in module.reviews %}
+        {% set stars = review.rating|int|default(5) %}
+        <figure class="testimonial-card{% if review.featured %} testimonial-card--featured{% endif %}">
+
+          {% if stars > 0 %}
+            <div class="testimonial-card__stars" aria-label="{{ stars }} / 5">
+              {% for i in range(1, 6) %}
+                <span class="testimonial-card__star{% if i <= stars %} is-on{% endif %}" aria-hidden="true">★</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <blockquote class="testimonial-card__quote">
+            {{ review.quote }}
+          </blockquote>
+
+          <figcaption class="testimonial-card__author">
+            {% if review.author_photo and review.author_photo.src %}
+              <img src="{{ review.author_photo.src }}"
+                   alt="{{ review.author_photo.alt|default(review.author_name) }}"
+                   class="testimonial-card__avatar"
+                   loading="lazy">
+            {% else %}
+              <span class="testimonial-card__avatar testimonial-card__avatar--placeholder" aria-hidden="true">🐾</span>
+            {% endif %}
+            <span class="testimonial-card__meta">
+              <span class="testimonial-card__name">{{ review.author_name }}</span>
+              {% if review.review_date %}
+                <span class="testimonial-card__date">{{ review.review_date }}</span>
+              {% endif %}
+            </span>
+          </figcaption>
+
+        </figure>
+      {% else %}
+        <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 2rem 0;">
+          {{ "尚未新增評價。" if is_zh else "No reviews yet." }}
+        </p>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

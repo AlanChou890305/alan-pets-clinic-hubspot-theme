@@ -1,0 +1,97 @@
+[
+  {
+    "id": "section_heading",
+    "name": "section_heading",
+    "label": "Section Heading",
+    "type": "text",
+    "default": "What Pet Parents Say"
+  },
+  {
+    "id": "section_subheading",
+    "name": "section_subheading",
+    "label": "Section Subheading",
+    "type": "text",
+    "default": "Real stories from families who trust us with their beloved companions."
+  },
+  {
+    "id": "reviews",
+    "name": "reviews",
+    "label": "Reviews",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 3 },
+    "default": [
+      {
+        "author_name": "Sarah & Max",
+        "quote": "<p>The team treated Max like their own. Caring, thorough, and genuinely kind — we won't go anywhere else.</p>",
+        "rating": "5",
+        "review_date": "March 2026",
+        "featured": true
+      },
+      {
+        "author_name": "James L.",
+        "quote": "<p>Same-day emergency appointment saved our cat's life. Forever grateful for the calm, expert care.</p>",
+        "rating": "5",
+        "review_date": "February 2026",
+        "featured": false
+      },
+      {
+        "author_name": "The Nguyen Family",
+        "quote": "<p>Clear explanations, no upselling, and a spotless clinic. Our puppy actually enjoys her visits!</p>",
+        "rating": "5",
+        "review_date": "January 2026",
+        "featured": false
+      }
+    ],
+    "children": [
+      {
+        "id": "author_name",
+        "name": "author_name",
+        "label": "Author Name",
+        "type": "text",
+        "default": "Happy Pet Parent"
+      },
+      {
+        "id": "author_photo",
+        "name": "author_photo",
+        "label": "Author Photo (optional)",
+        "type": "image",
+        "default": { "src": "", "alt": "" }
+      },
+      {
+        "id": "quote",
+        "name": "quote",
+        "label": "Review Quote",
+        "type": "richtext",
+        "default": "<p>Share what this pet parent said about their experience.</p>"
+      },
+      {
+        "id": "rating",
+        "name": "rating",
+        "label": "Star Rating",
+        "type": "choice",
+        "choices": [
+          ["1", "★☆☆☆☆ (1)"],
+          ["2", "★★☆☆☆ (2)"],
+          ["3", "★★★☆☆ (3)"],
+          ["4", "★★★★☆ (4)"],
+          ["5", "★★★★★ (5)"]
+        ],
+        "default": "5"
+      },
+      {
+        "id": "review_date",
+        "name": "review_date",
+        "label": "Review Date (free text, e.g. \"March 2026\")",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "id": "featured",
+        "name": "featured",
+        "label": "Featured (larger card)",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  }
+]
