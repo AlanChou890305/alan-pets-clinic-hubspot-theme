@@ -64,8 +64,12 @@ Two tables in portal `245981171`; source-of-truth JSON lives in `hubdb/`:
 
 | Table            | ID           | Source file                  |
 |------------------|--------------|------------------------------|
-| `clinic_services`| `3091965654` | `hubdb/clinic_services.json` |
+| `clinic_services`| `3092241096` | `hubdb/clinic_services.json` |
 | `clinic_doctors` | `2161019602` | `hubdb/clinic_doctors.json`  |
+
+> HubDB BOOLEAN cell values in the seed JSON must be `1`/`0` integers, **not** JSON
+> `true`/`false` — `hs hubdb create` silently coerces `true`/`false` to `0`, which had
+> broken the "featured/popular" filters on both tables.
 
 - The JSON files are authoritative for schema + seed rows. This CLI (v7.11.2) has no
   "import rows into an existing table" or `publish` command — only `create` / `clear`
