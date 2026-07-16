@@ -32,6 +32,11 @@
 
       {# CTA + Mobile hamburger #}
       <div class="site-header__actions">
+        {# Language switcher — renders only when the page has published translations #}
+        <div class="site-header__lang">
+          {% language_switcher "header_language_switcher" label="Language", display_mode="localized" %}
+        </div>
+
         {% if module.cta_label %}
           <a href="{{ module.cta_url.url.href }}"
              class="btn btn--primary"
@@ -68,6 +73,10 @@
         {{ module.cta_label }}
       </a>
     {% endif %}
+    {# Language switcher (mobile) — renders only when the page has published translations #}
+    <div class="site-header__lang site-header__lang--mobile">
+      {% language_switcher "header_language_switcher_mobile" label="Language", display_mode="localized" %}
+    </div>
   </nav>
 
 </header>

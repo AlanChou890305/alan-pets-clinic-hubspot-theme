@@ -78,6 +78,44 @@
   gap: var(--space-3);
 }
 
+/* Language switcher (native HubSpot {% language_switcher %} output) */
+.site-header__lang ul,
+.site-header__lang ol {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-sm);
+}
+.site-header__lang li {
+  margin: 0;
+}
+.site-header__lang a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+.site-header__lang a:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+.site-header__lang .active,
+.site-header__lang [aria-current] {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.site-header__lang--mobile {
+  margin-top: var(--space-2);
+}
+.site-header__lang--mobile ul,
+.site-header__lang--mobile ol {
+  font-size: var(--font-size-base);
+}
+
 /* Mobile hamburger */
 .site-header__hamburger {
   display: none;

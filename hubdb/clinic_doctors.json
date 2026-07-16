@@ -18,14 +18,32 @@
       "options": []
     },
     {
+      "name": "title_zh",
+      "label": "Title / Credentials (中文)",
+      "type": "TEXT",
+      "options": []
+    },
+    {
       "name": "specialty",
       "label": "Specialty",
       "type": "TEXT",
       "options": []
     },
     {
+      "name": "specialty_zh",
+      "label": "Specialty (中文)",
+      "type": "TEXT",
+      "options": []
+    },
+    {
       "name": "bio",
       "label": "Biography",
+      "type": "RICHTEXT",
+      "options": []
+    },
+    {
+      "name": "bio_zh",
+      "label": "Biography (中文)",
       "type": "RICHTEXT",
       "options": []
     },
@@ -49,11 +67,83 @@
     }
   ],
   "rows": [
-    { "values": { "name": "Dr. Emily Carter",  "title": "DVM, Chief Veterinarian",     "specialty": "Small Animal Medicine & Internal Medicine", "bio": "<p>Dr. Carter has over 15 years of experience in small animal medicine. She leads our clinical team and is passionate about preventive care and building long-term relationships with patients and their families.</p>", "is_featured": 1,  "display_order": 1 } },
-    { "values": { "name": "Dr. Jessica Lee",   "title": "DVM, DABVP (Feline)",         "specialty": "Feline & Exotic Animal Specialist",          "bio": "<p>Dr. Lee is our feline and exotic animal expert, with board certification from the American Board of Veterinary Practitioners. She has a special interest in cat-friendly handling techniques and exotic species.</p>",  "is_featured": 1,  "display_order": 2 } },
-    { "values": { "name": "Dr. Marcus Reed",   "title": "DVM, DACVS",                  "specialty": "Surgery & Orthopaedics",                     "bio": "<p>Dr. Reed is our lead surgeon with board certification in veterinary surgery. He specialises in orthopaedic procedures, soft tissue surgery, and minimally invasive techniques.</p>",                          "is_featured": 1,  "display_order": 3 } },
-    { "values": { "name": "Dr. Sophia Nguyen", "title": "DVM, MS",                     "specialty": "Dermatology & Nutrition",                    "bio": "<p>Dr. Nguyen completed her residency in veterinary dermatology and holds a Master's in clinical nutrition. She manages complex allergy cases, skin disorders, and nutritional consultations.</p>",              "is_featured": 1,  "display_order": 4 } },
-    { "values": { "name": "Dr. James Thornton","title": "DVM",                         "specialty": "Preventive Care & Vaccination",              "bio": "<p>Dr. Thornton joined PawClinic in 2020 with a focus on preventive medicine and community health. He is known for his gentle approach with anxious patients and thorough wellness consultations.</p>",      "is_featured": 0, "display_order": 5 } },
-    { "values": { "name": "Dr. Priya Sharma",  "title": "DVM, DACVIM (Oncology)",      "specialty": "Oncology & Diagnostics",                    "bio": "<p>Dr. Sharma is our oncology specialist, helping pets and their families navigate cancer diagnoses with compassion and expertise. She coordinates closely with our diagnostic imaging team.</p>",          "is_featured": 0, "display_order": 6 } }
+    {
+      "values": {
+        "name": "Dr. Emily Carter",
+        "title": "DVM, Chief Veterinarian",
+        "specialty": "Small Animal Medicine & Internal Medicine",
+        "bio": "<p>Dr. Carter has over 15 years of experience in small animal medicine. She leads our clinical team and is passionate about preventive care and building long-term relationships with patients and their families.</p>",
+        "is_featured": 1,
+        "display_order": 1,
+        "title_zh": "獸醫博士，院長",
+        "specialty_zh": "小動物醫學與內科",
+        "bio_zh": "<p>Carter 醫師在小動物醫學領域擁有超過 15 年經驗，帶領我們的臨床團隊，熱衷於預防醫學，並致力與患者及其家庭建立長期關係。</p>"
+      }
+    },
+    {
+      "values": {
+        "name": "Dr. Jessica Lee",
+        "title": "DVM, DABVP (Feline)",
+        "specialty": "Feline & Exotic Animal Specialist",
+        "bio": "<p>Dr. Lee is our feline and exotic animal expert, with board certification from the American Board of Veterinary Practitioners. She has a special interest in cat-friendly handling techniques and exotic species.</p>",
+        "is_featured": 1,
+        "display_order": 2,
+        "title_zh": "獸醫博士，DABVP（貓科）",
+        "specialty_zh": "貓科與特殊寵物專科",
+        "bio_zh": "<p>Lee 醫師是我們的貓科與特殊寵物專家，擁有美國獸醫執業委員會（ABVP）認證。她特別專注於貓咪友善的保定技術與特殊物種照護。</p>"
+      }
+    },
+    {
+      "values": {
+        "name": "Dr. Marcus Reed",
+        "title": "DVM, DACVS",
+        "specialty": "Surgery & Orthopaedics",
+        "bio": "<p>Dr. Reed is our lead surgeon with board certification in veterinary surgery. He specialises in orthopaedic procedures, soft tissue surgery, and minimally invasive techniques.</p>",
+        "is_featured": 1,
+        "display_order": 3,
+        "title_zh": "獸醫博士，DACVS",
+        "specialty_zh": "外科與骨科",
+        "bio_zh": "<p>Reed 醫師是我們的首席外科醫師，擁有獸醫外科委員會認證，專精於骨科手術、軟組織手術與微創技術。</p>"
+      }
+    },
+    {
+      "values": {
+        "name": "Dr. Sophia Nguyen",
+        "title": "DVM, MS",
+        "specialty": "Dermatology & Nutrition",
+        "bio": "<p>Dr. Nguyen completed her residency in veterinary dermatology and holds a Master's in clinical nutrition. She manages complex allergy cases, skin disorders, and nutritional consultations.</p>",
+        "is_featured": 1,
+        "display_order": 4,
+        "title_zh": "獸醫博士，理學碩士",
+        "specialty_zh": "皮膚科與營養科",
+        "bio_zh": "<p>Nguyen 醫師完成獸醫皮膚科住院醫師訓練，並擁有臨床營養學碩士學位，擅長處理複雜過敏病例、皮膚疾病與營養諮詢。</p>"
+      }
+    },
+    {
+      "values": {
+        "name": "Dr. James Thornton",
+        "title": "DVM",
+        "specialty": "Preventive Care & Vaccination",
+        "bio": "<p>Dr. Thornton joined PawClinic in 2020 with a focus on preventive medicine and community health. He is known for his gentle approach with anxious patients and thorough wellness consultations.</p>",
+        "is_featured": 0,
+        "display_order": 5,
+        "title_zh": "獸醫博士",
+        "specialty_zh": "預防醫學與疫苗接種",
+        "bio_zh": "<p>Thornton 醫師於 2020 年加入 PawClinic，專注於預防醫學與社區健康。他以溫柔對待緊張患者及細心的健康諮詢著稱。</p>"
+      }
+    },
+    {
+      "values": {
+        "name": "Dr. Priya Sharma",
+        "title": "DVM, DACVIM (Oncology)",
+        "specialty": "Oncology & Diagnostics",
+        "bio": "<p>Dr. Sharma is our oncology specialist, helping pets and their families navigate cancer diagnoses with compassion and expertise. She coordinates closely with our diagnostic imaging team.</p>",
+        "is_featured": 0,
+        "display_order": 6,
+        "title_zh": "獸醫博士，DACVIM（腫瘤科）",
+        "specialty_zh": "腫瘤科與診斷",
+        "bio_zh": "<p>Sharma 醫師是我們的腫瘤科專家，以同理心與專業協助寵物及其家庭面對癌症診斷。她與我們的影像診斷團隊密切合作。</p>"
+      }
+    }
   ]
 }

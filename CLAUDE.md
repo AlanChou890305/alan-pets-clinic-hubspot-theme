@@ -64,8 +64,8 @@ Two tables in portal `245981171`; source-of-truth JSON lives in `hubdb/`:
 
 | Table            | ID           | Source file                  |
 |------------------|--------------|------------------------------|
-| `clinic_services`| `3092241096` | `hubdb/clinic_services.json` |
-| `clinic_doctors` | `3092171510` | `hubdb/clinic_doctors.json`  |
+| `clinic_services`| `3091965655` | `hubdb/clinic_services.json` |
+| `clinic_doctors` | `3092305609` | `hubdb/clinic_doctors.json`  |
 
 > HubDB BOOLEAN cell values in the seed JSON must be `1`/`0` integers, **not** JSON
 > `true`/`false` — `hs hubdb create` silently coerces `true`/`false` to `0`, which had
@@ -96,9 +96,21 @@ exception — they get their own dedicated templates.
 
 Target approach: HubSpot **native multi-language pages** (English primary, 繁體中文
 secondary group) rather than a client-side DOM toggle. Module-field copy is authored
-per language-variant page; HubDB-driven content uses bilingual columns
-(`*_en` / `*_zh`) selected in HubL via `content.language`. A language switcher lives
-in `modules/global/header.module`.
+per language-variant page; HubDB-driven content keeps English columns as the base and
+adds `_zh` columns (`name_zh`, `description_zh`, `duration_zh` on `clinic_services`;
+`title_zh`, `specialty_zh`, `bio_zh` on `clinic_doctors`).
+
+- HubL picks the language per row with:
+  `{% set is_zh = content.language and 'zh' in content.language %}` then
+  `{{ row.name_zh if is_zh and row.name_zh else row.name }}` (falls back to English).
+  The `'zh' in content.language` test matches `zh-tw` / `zh-hk` / `zh-hant`.
+- The category SELECT stays English (its lowercased slug drives JS filtering); ZH
+  display labels come from a `cat_labels_zh` map inside `services-hubdb/module.html`.
+- The header uses HubSpot's native `{% language_switcher %}` tag (styled under
+  `.site-header__lang`), which only renders once a page has published translations.
+- **User action (HubSpot UI, not CLI):** Settings → Website → Languages, add 繁體中文
+  as a secondary language, then create the 繁體中文 variant of each page and translate
+  the module-field copy. HubDB `_zh` columns render automatically on those variants.
 
 ## Current scope / in progress
 

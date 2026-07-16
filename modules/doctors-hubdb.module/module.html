@@ -1,6 +1,9 @@
 {% set table_name = module.hubdb_table_id | default('clinic_doctors') %}
 {% set per_page   = module.items_per_page | default(4) %}
 
+{# Language: true when the current page is a Traditional-Chinese variant #}
+{% set is_zh = content.language and 'zh' in content.language %}
+
 {% if module.featured_only %}
   {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order&is_featured__eq=true') %}
 {% else %}
@@ -22,13 +25,16 @@
 
       <div class="grid-4 doctors-grid">
         {% for row in rows %}
+          {% set doc_title = row.title_zh if is_zh and row.title_zh else row.title %}
+          {% set doc_specialty = row.specialty_zh if is_zh and row.specialty_zh else row.specialty %}
+          {% set doc_bio = row.bio_zh if is_zh and row.bio_zh else row.bio %}
           <div class="doctor-card-wrap">
             <article class="doctor-card">
 
               <div class="doctor-card__photo-wrap">
                 {% if row.photo and row.photo.url %}
                   <img src="{{ row.photo.url }}"
-                       alt="Photo of {{ row.name }}"
+                       alt="{{ '照片：' ~ row.name if is_zh else 'Photo of ' ~ row.name }}"
                        class="doctor-card__photo"
                        loading="lazy">
                 {% else %}
@@ -38,15 +44,15 @@
 
               <div class="doctor-card__body">
                 <h3 class="doctor-card__name">{{ row.name }}</h3>
-                {% if row.title %}
-                  <p class="doctor-card__title">{{ row.title }}</p>
+                {% if doc_title %}
+                  <p class="doctor-card__title">{{ doc_title }}</p>
                 {% endif %}
-                {% if row.specialty %}
-                  <p class="doctor-card__specialty">{{ row.specialty }}</p>
+                {% if doc_specialty %}
+                  <p class="doctor-card__specialty">{{ doc_specialty }}</p>
                 {% endif %}
-                {% if module.show_bio and row.bio %}
+                {% if module.show_bio and doc_bio %}
                   <div class="doctor-card__bio">
-                    {{ row.bio | striptags | truncate(200) }}
+                    {{ doc_bio | striptags | truncate(200) }}
                   </div>
                 {% endif %}
               </div>
@@ -55,7 +61,11 @@
           </div>
         {% else %}
           <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 3rem 0;">
-            No doctors found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
+            {% if is_zh %}
+              找不到醫師資料，請在 <strong>{{ table_name }}</strong> HubDB 資料表中新增資料。
+            {% else %}
+              No doctors found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
+            {% endif %}
           </p>
         {% endfor %}
       </div>

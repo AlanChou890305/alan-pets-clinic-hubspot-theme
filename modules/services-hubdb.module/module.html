@@ -1,6 +1,19 @@
 {% set table_name = module.hubdb_table_id | default('clinic_services') %}
 {% set per_page   = module.items_per_page | default(4) %}
 
+{# Language: true when the current page is a Traditional-Chinese variant #}
+{% set is_zh = content.language and 'zh' in content.language %}
+
+{# Category label translations (SELECT values are English; slug stays English for JS filtering) #}
+{% set cat_labels_zh = {
+  "Wellness": "健康保健",
+  "Dental": "牙齒保健",
+  "Emergency": "緊急急診",
+  "Surgery": "外科手術",
+  "Specialty": "專科門診",
+  "Diagnostic": "影像檢驗"
+} %}
+
 {# Query HubDB — order by display_order asc #}
 {% if module.featured_only %}
   {% set rows = hubdb_table_rows(table_name, 'orderBy=display_order&is_popular__eq=true') %}
@@ -39,13 +52,13 @@
         <div class="services-filter" role="group" aria-label="Filter by category">
           <button class="services-filter__btn services-filter__btn--active"
                   data-category="all">
-            All
+            {{ "全部" if is_zh else "All" }}
             <span class="services-filter__count">{{ total_rows }}</span>
           </button>
           {% for cat in categories %}
             {% set cat_count = rows | selectattr('category', 'equalto', cat) | list | length %}
             <button class="services-filter__btn" data-category="{{ cat | lower | replace(' ', '-') }}">
-              {{ cat }}
+              {{ cat_labels_zh[cat] if is_zh and cat_labels_zh[cat] else cat }}
               <span class="services-filter__count">{{ cat_count }}</span>
             </button>
           {% endfor %}
@@ -57,6 +70,9 @@
       {# Cards grid #}
       <div class="grid-4 services-grid">
         {% for row in rows %}
+          {% set svc_name = row.name_zh if is_zh and row.name_zh else row.name %}
+          {% set svc_desc = row.description_zh if is_zh and row.description_zh else row.description %}
+          {% set svc_duration = row.duration_zh if is_zh and row.duration_zh else row.duration %}
           <div class="service-card-wrap"
                data-category="{{ row.category | lower | replace(' ', '-') }}">
             <article class="service-card">
@@ -64,7 +80,7 @@
               <div class="service-card__image-wrap">
                 {% if row.image and row.image.url %}
                   <img src="{{ row.image.url }}"
-                       alt="{{ row.name }}"
+                       alt="{{ svc_name }}"
                        class="service-card__image"
                        loading="lazy">
                 {% else %}
@@ -76,30 +92,30 @@
 
                 {% if row.category %}
                   <span class="badge badge--primary service-card__category">
-                    {{ row.category }}
+                    {{ cat_labels_zh[row.category] if is_zh and cat_labels_zh[row.category] else row.category }}
                   </span>
                 {% endif %}
 
                 {% if row.is_popular %}
                   <span class="badge badge--accent service-card__category"
                         style="top: auto; bottom: var(--space-3);">
-                    Popular
+                    {{ "熱門" if is_zh else "Popular" }}
                   </span>
                 {% endif %}
               </div>
 
               <div class="service-card__body">
-                <h3 class="service-card__title">{{ row.name }}</h3>
-                {% if row.description %}
+                <h3 class="service-card__title">{{ svc_name }}</h3>
+                {% if svc_desc %}
                   <p class="service-card__desc">
-                    {{ row.description | striptags | truncate(120) }}
+                    {{ svc_desc | striptags | truncate(120) }}
                   </p>
                 {% endif %}
 
                 <div class="service-card__footer">
-                  {% if row.duration %}
+                  {% if svc_duration %}
                     <span class="service-card__duration">
-                      🕐 {{ row.duration }}
+                      🕐 {{ svc_duration }}
                     </span>
                   {% endif %}
                   <a href="{{ module.book_cta_url.url.href }}?service={{ row.name | urlencode }}"
@@ -113,7 +129,11 @@
           </div>
         {% else %}
           <p style="color: var(--color-text-muted); grid-column: 1/-1; text-align: center; padding: 3rem 0;">
-            No services found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
+            {% if is_zh %}
+              找不到服務項目，請在 <strong>{{ table_name }}</strong> HubDB 資料表中新增資料。
+            {% else %}
+              No services found. Please add entries to the <strong>{{ table_name }}</strong> HubDB table.
+            {% endif %}
           </p>
         {% endfor %}
       </div>
