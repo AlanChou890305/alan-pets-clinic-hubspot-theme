@@ -150,7 +150,12 @@ Active work plan (see the approved plan file for full detail):
    `#booking`), and `final-cta-banner`. Campaign styles live in `src/css/campaign.css`.
 6. **Phase 6** — wire a real HubSpot Form into `booking-form.module` (it currently
    only shows a client-side success message; `hubspot_form_id` is unset so no lead
-   is captured).
+   is captured). Portal ID default is already `245981171`. Remaining steps are manual
+   HubSpot-UI actions — see `SETUP.md` (includes a note that the custom step UI's
+   values are not yet mapped into the embedded HubSpot form submission).
+
+All manual HubSpot-UI steps (pages, dynamic pages, languages, form) are collected in
+**`SETUP.md`** at the repo root.
 
 ## Git
 
