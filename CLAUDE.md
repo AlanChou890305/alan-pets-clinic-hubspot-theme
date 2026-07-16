@@ -64,12 +64,17 @@ Two tables in portal `245981171`; source-of-truth JSON lives in `hubdb/`:
 
 | Table            | ID           | Source file                  |
 |------------------|--------------|------------------------------|
-| `clinic_services`| `2166044353` | `hubdb/clinic_services.json` |
+| `clinic_services`| `3091965654` | `hubdb/clinic_services.json` |
 | `clinic_doctors` | `2161019602` | `hubdb/clinic_doctors.json`  |
 
-- The JSON files are authoritative for schema + seed rows. Live row counts must be
-  reconciled against them (the services table was created empty at one point while
-  the JSON had 10 rows — always publish after import: `hs hubdb publish <id> --account=production`).
+- The JSON files are authoritative for schema + seed rows. This CLI (v7.11.2) has no
+  "import rows into an existing table" or `publish` command — only `create` / `clear`
+  / `delete` / `fetch` / `list`. `hs hubdb create --path <file>` creates AND publishes
+  rows in one step, but fails if the table name already exists. To re-seed an existing
+  table, `hs hubdb delete <id>` first (safe only when it has no rows worth keeping),
+  then `create`. This changes the table ID — fine here because modules reference tables
+  by **name**, not ID (`hubdb_table_rows('clinic_services', ...)`); just update the ID
+  in this file afterward.
 - Seed with JSON (preserves SELECT/IMAGE/BOOLEAN/NUMBER typing), not plain CSV
   (which infers everything as TEXT). CSVs in `hubdb/` are human-readable artifacts only.
 - There is intentionally **no** `clinic_settings` HubDB table — global header/footer
